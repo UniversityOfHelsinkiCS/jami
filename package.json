@@ -39,7 +39,7 @@
     "vitest": "^1.2.0"
   },
   "dependencies": {
-    "@sentry/node": "^7.27.0",
+    "@sentry/node": "^8.0.0",
     "@sentry/tracing": "^7.27.0",
     "axios": "^1.6.8",
     "dotenv": "^16.0.3",
