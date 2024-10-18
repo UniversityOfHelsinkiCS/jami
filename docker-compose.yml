@@ -19,7 +19,7 @@ services:
     container_name: jami_dev
     tty: true
   db:
-    image: postgres:13.1
+    image: postgres:13.16
     environment:
       - PGDATA=/data
       - POSTGRES_PASSWORD=postgres
