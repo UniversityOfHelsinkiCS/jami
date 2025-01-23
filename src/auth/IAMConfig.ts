@@ -152,6 +152,8 @@ const kojoMap = {
   'hy-oiktdk-otm-jory': 'hy-oiktdk-maisteri-kojot',
   'hy-oiktdk-ibl-jory': 'hy-oiktdk-maisteri-kojot',
   'hy-oiktdk-ggl-jory': 'hy-oiktdk-maisteri-kojot',
+  'hy-ltdk-spk-jory': 'hy-ltdk-kandi-kojot',
+  'hy-ltdk-hll-jory': 'hy-ltdk-kandi-kojot',
   'hy-ltdk-psyk-jory': 'hy-ltdk-maisteri-kojot',
   'hy-ltdk-logo-jory': 'hy-ltdk-maisteri-kojot',
   'hy-ltdk-ll-jory': 'hy-ltdk-maisteri-kojot',
