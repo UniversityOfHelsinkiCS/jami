@@ -153,12 +153,12 @@ const kojoMap = {
   'hy-oiktdk-ibl-jory': 'hy-oiktdk-maisteri-kojot',
   'hy-oiktdk-ggl-jory': 'hy-oiktdk-maisteri-kojot',
   'hy-ltdk-spk-jory': 'hy-ltdk-kandi-kojot',
-  'hy-ltdk-hll-jory': 'hy-ltdk-kandi-kojot',
+  'hy-ltdk-hll-jory': ['hy-ltdk-kandi-kojot', 'hy-ltdk-maisteri-kojot'],
   'hy-ltdk-psyk-jory': 'hy-ltdk-maisteri-kojot',
   'hy-ltdk-logo-jory': 'hy-ltdk-maisteri-kojot',
   'hy-ltdk-ll-jory': 'hy-ltdk-maisteri-kojot',
   'hy-ltdk-tmed-jory': 'hy-ltdk-maisteri-kojot',
-  'hy-ltdk-hll-jory': 'hy-ltdk-maisteri-kojot',
+  // 'hy-ltdk-hll-jory': 'hy-ltdk-maisteri-kojot',
   'hy-ltdk-terv-jory': 'hy-ltdk-maisteri-kojot',
   'hy-humtdk-filk-jory': 'hy-humtdk-kandi-kojot',
   'hy-humtdk-ttk-jory': 'hy-humtdk-kandi-kojot',
@@ -478,8 +478,16 @@ const iamToDoctoralSchool = (iam) => doctoralSchoolMap[iam]
 
 const getStudyLeaderGroup = (iam) => kojoMap[iam]
 
-const isStudyLeaderGroup = (iam, allIams) =>
-  allIams.concat('ANY').includes(getStudyLeaderGroup(iam))
+const isStudyLeaderGroup = (iam, allIams) => {
+  const kojoIam = getStudyLeaderGroup(iam)
+  return allIams.concat('ANY').some((iam) => {
+    if (Array.isArray(kojoIam)) {
+      return kojoIam.includes(iam)
+    } else {
+      return kojoIam === iam
+    }
+  })
+}
 
 const iamToOrganisationCode = (iam) => {
   const organisationCodes = joryMap[iam]
