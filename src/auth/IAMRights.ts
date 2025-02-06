@@ -7,7 +7,8 @@ import {
   isKosuIam,
   isUniversityWideIam,
   isDoctoralIam,
-  iamToOrganisationCode,
+  isFeedbackLiaisonIam,
+  joryIamToOrganisationCode,
   isEmployeeIam,
   iamToDoctoralSchool,
   kosuIamToFaculties,
@@ -22,7 +23,7 @@ import { Programme } from '../organisation/types'
 
 type AccessSpecialGroupFunction = (hyGroups: string[]) => {
   access?: { [programmeCode: string]: OrganisationAccess }
-  specialGroup?: { [key: string]: boolean }
+  specialGroup?: { [key: string]: boolean | string[] }
 }
 
 /**
@@ -55,7 +56,7 @@ const getSuperAdmin: AccessSpecialGroupFunction = (hyGroups) => {
 }
 
 /**
- * NOT USED
+ * NOT USED (wait is this used?)
  * Grant admin rights if the user has correct iams (eg. grp-ospa)
  * @returns admin special group
  */
@@ -107,6 +108,26 @@ const getJory: AccessSpecialGroupFunction = (hyGroups) => {
 }
 
 /**
+ * Needed primarily for Norppa
+ * Grant feedback liaison special group if the user has feedback liaison iam AND jory iam
+ * The feedbackLiaison special group contains a list of programme keys that the user is jory in
+ * @returns feedback liaison special group
+ */
+const getFeedbackLiaison: AccessSpecialGroupFunction = (hyGroups) => {
+  const isFeedbackLiaison = hyGroups.some(isFeedbackLiaisonIam)
+
+  const joryIams = hyGroups.filter(isJoryIam)
+  const joryProgrammes = joryIams
+    .map(joryIamToOrganisationCode)
+    .flatMap((codes) => codes.map(mapToDegreeCode))
+
+  if (isFeedbackLiaison && joryProgrammes.length > 0) {
+    return { specialGroup: { feedbackLiaison: joryProgrammes } }
+  }
+  return {}
+}
+
+/**
  * Needed for Oodikone
  * Grant kosu special group if the user has kosu iams (eg. hy-ypa-opa-kosu-kumpula)
  * @returns kosu special group
@@ -125,7 +146,15 @@ const getKosu: AccessSpecialGroupFunction = (hyGroups) => {
 const getSpecialGroups: AccessSpecialGroupFunction = (hyGroups) => {
   let specialGroup = {}
 
-  ;[getAdmin, getSuperAdmin, getOpenUni, getHyOne, getJory, getKosu]
+  ;[
+    getAdmin,
+    getSuperAdmin,
+    getOpenUni,
+    getHyOne,
+    getJory,
+    getKosu,
+    getFeedbackLiaison,
+  ]
     .map((f) => f(hyGroups))
     .forEach(({ specialGroup: newSpecialGroup }) => {
       specialGroup = { ...specialGroup, ...newSpecialGroup }
@@ -230,7 +259,7 @@ const getDoctoralSchoolAccess: AccessSpecialGroupFunction = (hyGroups) => {
 const getProgrammeAdminAccess: AccessSpecialGroupFunction = (hyGroups) => {
   const orgCodes = hyGroups
     .filter((iam) => isStudyLeaderGroup(iam, hyGroups))
-    .map((iam) => iamToOrganisationCode(iam))
+    .map((iam) => joryIamToOrganisationCode(iam))
     .filter(Boolean)
 
   const degreeCodes = orgCodes.flatMap((codes) => codes.map(mapToDegreeCode))
@@ -257,7 +286,7 @@ const getProgrammeAdminAccess: AccessSpecialGroupFunction = (hyGroups) => {
 const getProgrammeWriteAccess: AccessSpecialGroupFunction = (hyGroups) => {
   if (!hyGroups.some(isEmployeeIam)) return {}
   const orgCodes = hyGroups
-    .map((iam) => iamToOrganisationCode(iam))
+    .map((iam) => joryIamToOrganisationCode(iam))
     .filter(Boolean)
   const degreeCodes = orgCodes.flatMap((codes) => codes.map(mapToDegreeCode))
   const access = {}
@@ -274,7 +303,7 @@ const getProgrammeWriteAccess: AccessSpecialGroupFunction = (hyGroups) => {
  */
 const getProgrammeReadAccess: AccessSpecialGroupFunction = (hyGroups) => {
   const orgCodes = hyGroups
-    .map((iam) => iamToOrganisationCode(iam))
+    .map((iam) => joryIamToOrganisationCode(iam))
     .filter(Boolean)
   const degreeCodes = orgCodes.flatMap((codes) => codes.map(mapToDegreeCode))
   const access = {}

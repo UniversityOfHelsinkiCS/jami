@@ -7,7 +7,7 @@ const ANY = 'ANY'
 /**
  * Map from jory IAM to one or more programmes
  */
-const joryMap = {
+const joryMap: Record<string, string | string[]> = {
   'grp-avoin-johto': 'H930',
   'grp-kielikeskus-esihenkilot': 'H906', // note, all will be given kojo in kojomap
   'hy-ttdk-tuk-jory': '100-K001',
@@ -429,6 +429,8 @@ const hyOneGroups = ['hy-one'] // opintoasiainneuvosto
 
 const employeeGroups = ['hy-employees']
 
+const feedbackLiaisonGroups = ['hy-palautevastaavat']
+
 const oodikoneIams = [
   'grp-oodikone-users',
   'grp-oodikone-basic-users',
@@ -466,6 +468,8 @@ const isHyOneIam = (iam) => hyOneGroups.includes(iam)
 
 const isJoryIam = (iam) => joryGroups.includes(iam)
 
+const isFeedbackLiaisonIam = (iam) => feedbackLiaisonGroups.includes(iam)
+
 const isKosuIam = (iam) => kosuGroups.includes(iam)
 
 const isUniversityWideIam = (iam) => universityWideGroups.includes(iam)
@@ -489,7 +493,7 @@ const isStudyLeaderGroup = (iam, allIams) => {
   })
 }
 
-const iamToOrganisationCode = (iam) => {
+const joryIamToOrganisationCode = (iam) => {
   const organisationCodes = joryMap[iam]
   if (Array.isArray(organisationCodes)) {
     return organisationCodes
@@ -539,6 +543,7 @@ const relevantIAMs = new Set(
     hyOneGroups,
     employeeGroups,
     oodikoneIams,
+    feedbackLiaisonGroups,
     katselmusViewerIams,
   ].flat(),
 )
@@ -568,10 +573,11 @@ export {
   isDoctoralIam,
   isEmployeeIam,
   iamToDoctoralSchool,
-  iamToOrganisationCode,
+  joryIamToOrganisationCode,
   kosuIamToFaculties,
   dekaaniIamToFaculty,
   iamToFaculty,
+  isFeedbackLiaisonIam,
   opetusVaradekaani,
   isStudyLeaderGroup,
   relevantIAMs,
