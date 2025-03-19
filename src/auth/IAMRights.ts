@@ -69,6 +69,17 @@ const getAdmin: AccessSpecialGroupFunction = (hyGroups) => {
 }
 
 /**
+ * Grant employees rights if the user has correct iams (eg. hy-employees)
+ */
+const getEmployee: AccessSpecialGroupFunction = (hyGroups) => {
+  const isEmployee = hyGroups.some(isEmployeeIam)
+  if (isEmployee) {
+    return { specialGroup: { employee: true } }
+  }
+  return {}
+}
+
+/**
  * Needed for Oodikone
  * Grant open uni rights if the user has correct iams (eg. hy-ypa-opa-dojo)
  * @returns openUni special group
@@ -147,6 +158,7 @@ const getSpecialGroups: AccessSpecialGroupFunction = (hyGroups) => {
   let specialGroup = {}
 
   ;[
+    getEmployee,
     getAdmin,
     getSuperAdmin,
     getOpenUni,
