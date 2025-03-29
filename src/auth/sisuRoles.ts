@@ -31,18 +31,22 @@ export const hasFullSisuAccess = async (personId: string) => {
     }
   }
 
-  const { data } = await importerClient.get(`/jami/sisuroles/${personId}`)
-
-  if (data && Array.isArray(data)) {
-    const hasFullAccessToSisu = data.some((role) =>
-      sisuRolesGivingFullAccess.includes(role.accessroleId),
-    )
-    userCache.set(personId, {
-      hasAccess: hasFullAccessToSisu,
-      accessedAt: new Date(),
-    })
-    return hasFullAccessToSisu
+  try {
+    const { data } = await importerClient.get(`/jami/sisuroles/${personId}`)
+  
+    if (data && Array.isArray(data)) {
+      const hasFullAccessToSisu = data.some((role) =>
+        sisuRolesGivingFullAccess.includes(role.accessroleId),
+      )
+      userCache.set(personId, {
+        hasAccess: hasFullAccessToSisu,
+        accessedAt: new Date(),
+      })
+      return hasFullAccessToSisu
+    }
+    return false
+    
+  catch (error) {
+    return false    
   }
-
-  return false
 }
