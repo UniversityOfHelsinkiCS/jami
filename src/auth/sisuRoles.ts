@@ -44,9 +44,8 @@ export const hasFullSisuAccess = async (personId: string) => {
       })
       return hasFullAccessToSisu
     }
+    return false 
+  } catch (error) {
     return false
-    
-  catch (error) {
-    return false    
   }
 }
