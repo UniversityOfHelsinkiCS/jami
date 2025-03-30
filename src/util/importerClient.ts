@@ -8,6 +8,7 @@ const importerClient = axios.create({
   },
   baseURL: importerUrl,
 })
+importerClient.defaults.timeout = 5000
 
 const getImporterClient = () => {
   if (!importerToken) {

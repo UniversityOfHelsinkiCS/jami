@@ -46,6 +46,7 @@ export const hasFullSisuAccess = async (personId: string) => {
     }
     return false 
   } catch (error) {
+    console.error('Error fetching Sisu roles:', error)
     return false
   }
 }
