@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@sentry/node": "^8.38.0",
-    "@sentry/profiling-node": "^8.38.0",
+    "@sentry/profiling-node": "^9.0.0",
     "axios": "^1.6.8",
     "dotenv": "^16.0.3",
     "express": "^4.21.1",
