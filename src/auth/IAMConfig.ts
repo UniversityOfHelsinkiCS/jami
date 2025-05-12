@@ -19,9 +19,9 @@ const joryMap: Record<string, string | string[]> = {
   'hy-ltdk-psyk-jory': ['300-K001', '300-M004'], // psyk and logo slightly special
   'hy-ltdk-spk-jory': '300-K003',
   'hy-ltdk-logo-jory': ['300-K002', '300-M005'],
-  'hy-ltdk-ll-jory': '300-M001',
+  'hy-ltdk-ll-jory': ['300-M001', '300-M003'], // ll and hll are special
   'hy-ltdk-tmed-jory': '300-M002',
-  'hy-ltdk-hll-jory': '300-M003',
+  'hy-ltdk-hll-jory': ['300-M003', '300-M001'],
   'hy-ltdk-terv-jory': '300-M006',
   'hy-humtdk-filk-jory': '400-K001',
   'hy-humtdk-ttk-jory': '400-K002',
