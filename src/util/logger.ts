@@ -1,4 +1,5 @@
 import winston from 'winston'
+import LokiTransport from 'winston-loki'
 
 import { inProduction } from './config'
 
@@ -6,12 +7,21 @@ const { combine, timestamp, printf, splat } = winston.format
 
 const transports = []
 
+const LOKI_HOST = 'http://loki-svc.toska-lokki.svc.cluster.local:3100'
+
 transports.push(new winston.transports.File({ filename: 'debug.log' }))
 
 if (!inProduction) {
   const devFormat = printf(
     ({ level, message, timestamp, ...rest }) =>
       `${timestamp} ${level}: ${message} ${JSON.stringify(rest)}`,
+  )
+
+  transports.push(
+    new LokiTransport({
+      host: LOKI_HOST,
+      labels: { app: 'jami', environment: process.env.NODE_ENV || 'production' }
+    })
   )
 
   transports.push(
