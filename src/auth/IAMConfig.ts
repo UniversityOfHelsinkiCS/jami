@@ -461,18 +461,18 @@ const katselmusViewerIams = [
 ]
 
 const facultyWideWritingGroups = {
-  'grp-katselmus-ttdk': 'H10',
-  'grp-katselmus-oiktdk': 'H20',
-  'grp-katselmus-ltdk': 'H30',
-  'grp-katselmus-humtdk': 'H40',
-  'grp-katselmus-mltdk': 'H50',
-  'grp-katselmus-ftdk': 'H55',
-  'grp-katselmus-bytdk': 'H57',
-  'grp-katselmus-ktdk': 'H60',
-  'grp-katselmus-valttdk': 'H70',
-  'grp-katselmus-sockom': 'H74',
-  'grp-katselmus-mmtdk': 'H80',
-  'grp-katselmus-eltdk': 'H90',
+  'grp-katselmus-ttdk': 'teologinen',
+  'grp-katselmus-oiktdk': 'oikeustieteellinen',
+  'grp-katselmus-ltdk': 'lääketieteellinen',
+  'grp-katselmus-humtdk': 'humanistinen',
+  'grp-katselmus-mltdk': 'matemaattis-luonnontieteellinen',
+  'grp-katselmus-ftdk': 'farmasia',
+  'grp-katselmus-bytdk': 'bio- ja ympäristötieteellinen',
+  'grp-katselmus-ktdk': 'kasvatustieteellinen',
+  'grp-katselmus-valttdk': 'valtiotieteellinen',
+  'grp-katselmus-sockom': 'svenska',
+  'grp-katselmus-mmtdk': 'maatalous-metsätieteellinen',
+  'grp-katselmus-eltdk': 'eläinlääketieteellinen',
 }
 
 const isSuperAdminIam = (iam) => superAdminGroups.includes(iam)
@@ -600,4 +600,5 @@ export {
   isStudyLeaderGroup,
   relevantIAMs,
   relevantOrganisations,
+  facultyWideWritingGroups,
 }

@@ -15,6 +15,7 @@ import {
   opetusVaradekaani,
   isStudyLeaderGroup,
   dekaaniIamToFaculty,
+  facultyWideWritingGroups,
 } from './IAMConfig'
 import { FACULTIES } from '../organisation/faculties'
 import { mapToDegreeCode } from './common'
@@ -157,20 +158,20 @@ const getKosu: AccessSpecialGroupFunction = (hyGroups) => {
 const getSpecialGroups: AccessSpecialGroupFunction = (hyGroups) => {
   let specialGroup = {}
 
-  ;[
-    getEmployee,
-    getAdmin,
-    getSuperAdmin,
-    getOpenUni,
-    getHyOne,
-    getJory,
-    getKosu,
-    getFeedbackLiaison,
-  ]
-    .map((f) => f(hyGroups))
-    .forEach(({ specialGroup: newSpecialGroup }) => {
-      specialGroup = { ...specialGroup, ...newSpecialGroup }
-    })
+    ;[
+      getEmployee,
+      getAdmin,
+      getSuperAdmin,
+      getOpenUni,
+      getHyOne,
+      getJory,
+      getKosu,
+      getFeedbackLiaison,
+    ]
+      .map((f) => f(hyGroups))
+      .forEach(({ specialGroup: newSpecialGroup }) => {
+        specialGroup = { ...specialGroup, ...newSpecialGroup }
+      })
 
   return { specialGroup }
 }
@@ -229,6 +230,27 @@ const getFacultyAdminRights: AccessSpecialGroupFunction = (hyGroups) => {
     const programmeCodes = faculty.programmes.map((p) => p.key)
     programmeCodes.forEach((code) => {
       access[code] = { read: true, write: true, admin: true }
+    })
+  })
+  return { access, specialGroup: {} }
+}
+
+/**
+ * Grant write rights to faculty programmes if user has certain hygroupcn
+ * WIP
+ */
+const getFacultyWriteRights: AccessSpecialGroupFunction = hyGroups => {
+  const facultyCodes = hyGroups
+    .flatMap(kosuIamToFaculties)
+    // faculty codes from dekanaatti iam
+    .concat(hyGroups.map(dekaaniIamToFaculty))
+    .filter(Boolean)
+  const access = {}
+  facultyCodes.forEach((fc) => {
+    const faculty = FACULTIES.find((faculty) => faculty.code === fc)
+    const programmeCodes = faculty.programmes.map((p) => p.key)
+    programmeCodes.forEach((code) => {
+      access[code] = { read: true, write: true, admin: false }
     })
   })
   return { access, specialGroup: {} }
@@ -335,22 +357,22 @@ const getIAMRights: AccessSpecialGroupFunction = (hyGroups) => {
   let access = {}
   let specialGroup = {}
 
-  ;[
-    getUniversityReadingRights,
-    getFacultyReadingRights,
-    getDoctoralAccess,
-    getDoctoralSchoolAccess,
-    getProgrammeReadAccess,
-    // getProgrammeWriteAccess,
-    getProgrammeAdminAccess,
-    getFacultyAdminRights,
-    getSpecialGroups,
-  ]
-    .map((f) => f(hyGroups))
-    .forEach((accessInfo) => {
-      access = { ...access, ...accessInfo.access }
-      specialGroup = { ...specialGroup, ...accessInfo.specialGroup }
-    })
+    ;[
+      getUniversityReadingRights,
+      getFacultyReadingRights,
+      getDoctoralAccess,
+      getDoctoralSchoolAccess,
+      getProgrammeReadAccess,
+      // getProgrammeWriteAccess,
+      getProgrammeAdminAccess,
+      getFacultyAdminRights,
+      getSpecialGroups,
+    ]
+      .map((f) => f(hyGroups))
+      .forEach((accessInfo) => {
+        access = { ...access, ...accessInfo.access }
+        specialGroup = { ...specialGroup, ...accessInfo.specialGroup }
+      })
 
   return { access, specialGroup }
 }
