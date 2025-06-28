@@ -239,12 +239,15 @@ const getFacultyAdminRights: AccessSpecialGroupFunction = (hyGroups) => {
  * Grant write rights to faculty programmes if user has certain hygroupcn
  * WIP
  */
-const getFacultyWriteRights: AccessSpecialGroupFunction = hyGroups => {
-  const hasFacultyWriteRight = hyGroups.some(iam => Object.keys(facultyWideWritingGroups).includes(iam))
+const getFacultyWriteRights: AccessSpecialGroupFunction = (hyGroups) => {
+  const hasFacultyWriteRight = hyGroups.some((iam) =>
+    Object.keys(facultyWideWritingGroups).includes(iam),
+  )
   if (!hasFacultyWriteRight) return {}
 
   const facultyCodes = hyGroups
-    .map(group => facultyWideWritingGroups[group])
+    .map((group) => facultyWideWritingGroups[group])
+    .filter(Boolean)
 
   const access = {}
   facultyCodes.forEach((fc) => {
@@ -367,7 +370,7 @@ const getIAMRights: AccessSpecialGroupFunction = (hyGroups) => {
       // getProgrammeWriteAccess,
       getProgrammeAdminAccess,
       getFacultyAdminRights,
-      // getFacultyWriteRights,
+      getFacultyWriteRights,
       getSpecialGroups,
     ]
       .map((f) => f(hyGroups))
