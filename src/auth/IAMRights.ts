@@ -250,6 +250,7 @@ const getFacultyWriteRights: AccessSpecialGroupFunction = (hyGroups) => {
     .filter(Boolean)
 
   const access = {}
+  console.log(facultyCodes)
   facultyCodes.forEach((fc) => {
     const faculty = FACULTIES.find((faculty) => faculty.code === fc)
     const programmeCodes = faculty.programmes.map((p) => p.key)
