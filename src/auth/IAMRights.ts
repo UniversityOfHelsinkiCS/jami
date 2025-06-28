@@ -313,7 +313,7 @@ const getProgrammeAdminAccess: AccessSpecialGroupFunction = (hyGroups) => {
 }
 
 /**
- * UPDATE: nobody gets this. Kept here for documentation and consistency with other Toska software
+ * UPDATE: nobody gets this. Kept here for documentation and consistency with other Toska software, 28.06 Lomake uses this
  * Grant write and read access if the user belongs to employees group and studyprogramme's manager group
  * @param {string[]} hyGroups
  */
@@ -364,7 +364,7 @@ const getIAMRights: AccessSpecialGroupFunction = (hyGroups) => {
       getDoctoralAccess,
       getDoctoralSchoolAccess,
       getProgrammeReadAccess,
-      // getProgrammeWriteAccess,
+      getProgrammeWriteAccess,
       getProgrammeAdminAccess,
       getFacultyAdminRights,
       getFacultyWriteRights,
