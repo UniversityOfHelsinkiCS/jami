@@ -241,10 +241,7 @@ const getFacultyAdminRights: AccessSpecialGroupFunction = (hyGroups) => {
  */
 const getFacultyWriteRights: AccessSpecialGroupFunction = hyGroups => {
   const facultyCodes = hyGroups
-    .flatMap(kosuIamToFaculties)
-    // faculty codes from dekanaatti iam
-    .concat(hyGroups.map(dekaaniIamToFaculty))
-    .filter(Boolean)
+    .map(group => facultyWideWritingGroups[group])
   const access = {}
   facultyCodes.forEach((fc) => {
     const faculty = FACULTIES.find((faculty) => faculty.code === fc)
@@ -366,6 +363,7 @@ const getIAMRights: AccessSpecialGroupFunction = (hyGroups) => {
       // getProgrammeWriteAccess,
       getProgrammeAdminAccess,
       getFacultyAdminRights,
+      getFacultyWriteRights,
       getSpecialGroups,
     ]
       .map((f) => f(hyGroups))
