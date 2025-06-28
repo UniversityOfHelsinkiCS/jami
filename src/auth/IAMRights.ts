@@ -240,8 +240,12 @@ const getFacultyAdminRights: AccessSpecialGroupFunction = (hyGroups) => {
  * WIP
  */
 const getFacultyWriteRights: AccessSpecialGroupFunction = hyGroups => {
+  const hasFacultyWriteRight = hyGroups.some(iam => Object.keys(facultyWideWritingGroups).includes(iam))
+  if (!hasFacultyWriteRight) return {}
+
   const facultyCodes = hyGroups
     .map(group => facultyWideWritingGroups[group])
+
   const access = {}
   facultyCodes.forEach((fc) => {
     const faculty = FACULTIES.find((faculty) => faculty.code === fc)
@@ -363,7 +367,7 @@ const getIAMRights: AccessSpecialGroupFunction = (hyGroups) => {
       // getProgrammeWriteAccess,
       getProgrammeAdminAccess,
       getFacultyAdminRights,
-      getFacultyWriteRights,
+      // getFacultyWriteRights,
       getSpecialGroups,
     ]
       .map((f) => f(hyGroups))
