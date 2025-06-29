@@ -460,6 +460,9 @@ const katselmusViewerIams = [
   'hy-one',
 ]
 
+/**
+ * Faculty wide writing rights for lomake faculty forms
+ */
 const facultyWideWritingGroups = {
   'grp-katselmus-ttdk': 'teologinen',
   'grp-katselmus-oiktdk': 'oikeustieteellinen',
@@ -474,6 +477,18 @@ const facultyWideWritingGroups = {
   'grp-katselmus-mmtdk': 'maatalous-metsätieteellinen',
   'grp-katselmus-eltdk': 'eläinlääketieteellinen',
 }
+
+/**
+ * University form writing rights for lomake university form
+ */
+const universityFormWritingGroups = [
+  'grp-katselmus-projektiryhma',
+  'hy-one',
+  'hy-tine',
+  'hy-tutkijakoulu-johtokunta',
+  'grp-katselmus-arviointiryhma',
+  'hy-johtoryhma-ja-kansleri',
+]
 
 const isSuperAdminIam = (iam) => superAdminGroups.includes(iam)
 
@@ -563,6 +578,7 @@ const relevantIAMs = new Set(
     feedbackLiaisonGroups,
     katselmusViewerIams,
     facultyWideWritingGroups,
+    universityFormWritingGroups,
   ].flat(),
 )
 
@@ -601,4 +617,5 @@ export {
   relevantIAMs,
   relevantOrganisations,
   facultyWideWritingGroups,
+  universityFormWritingGroups,
 }
