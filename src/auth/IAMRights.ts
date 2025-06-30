@@ -252,8 +252,13 @@ const getFacultyWriteRights: AccessSpecialGroupFunction = (hyGroups) => {
 
   const access = {}
   facultyCodes.forEach((fc) => {
-    const faculty = FACULTY_MAP[fc]
-    access[faculty] = { read: true, write: true, admin: false }
+    const code = FACULTY_MAP[fc]
+    access[code] = { read: true, write: true, admin: false }
+    const faculty = FACULTIES.find((faculty) => faculty.code === fc)
+    const programmeCodes = faculty.programmes.map((p) => p.key)
+    programmeCodes.forEach((code) => {
+      access[code] = { read: true, write: false, admin: false }
+    })
   })
 
   const specialGroup = { evaluationFaculty: true }
