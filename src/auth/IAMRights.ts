@@ -168,7 +168,6 @@ const getSpecialGroups: AccessSpecialGroupFunction = (hyGroups) => {
       getJory,
       getKosu,
       getFeedbackLiaison,
-      getUniversityFormWriteRights,
     ]
       .map((f) => f(hyGroups))
       .forEach(({ specialGroup: newSpecialGroup }) => {
@@ -390,6 +389,7 @@ const getIAMRights: AccessSpecialGroupFunction = (hyGroups) => {
       getProgrammeAdminAccess,
       getFacultyAdminRights,
       getFacultyWriteRights,
+      getUniversityFormWriteRights,
       getSpecialGroups,
     ]
       .map((f) => f(hyGroups))
