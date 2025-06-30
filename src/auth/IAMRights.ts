@@ -16,6 +16,7 @@ import {
   isStudyLeaderGroup,
   dekaaniIamToFaculty,
   facultyWideWritingGroups,
+  universityFormWritingGroups,
 } from './IAMConfig'
 import { FACULTIES } from '../organisation/faculties'
 import { mapToDegreeCode } from './common'
@@ -167,6 +168,7 @@ const getSpecialGroups: AccessSpecialGroupFunction = (hyGroups) => {
       getJory,
       getKosu,
       getFeedbackLiaison,
+      getUniversityFormWriteRights,
     ]
       .map((f) => f(hyGroups))
       .forEach(({ specialGroup: newSpecialGroup }) => {
@@ -255,6 +257,18 @@ const getFacultyWriteRights: AccessSpecialGroupFunction = (hyGroups) => {
     access[faculty] = { read: true, write: true, admin: false }
   })
   return { access, specialGroup: {} }
+}
+
+/**
+ * Grant write rights to university form on Lomake might be unused
+ */
+const getUniversityFormWriteRights: AccessSpecialGroupFunction = (hyGroups) => {
+  const hasUniversityFormWriteRight = hyGroups.some((iam) => universityFormWritingGroups.includes(iam))
+  if (!hasUniversityFormWriteRight) return {}
+
+  const specialGroup = { universityForm: true }
+
+  return { access: {}, specialGroup }
 }
 
 /**
