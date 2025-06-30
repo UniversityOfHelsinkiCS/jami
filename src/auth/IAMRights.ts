@@ -17,6 +17,7 @@ import {
   dekaaniIamToFaculty,
   facultyWideWritingGroups,
   universityFormWritingGroups,
+  doctoralWriteGroups,
 } from './IAMConfig'
 import { FACULTIES } from '../organisation/faculties'
 import { mapToDegreeCode } from './common'
@@ -314,6 +315,19 @@ const getDoctoralSchoolAccess: AccessSpecialGroupFunction = (hyGroups) => {
   return { access }
 }
 
+const getDoctoralWriteAccess: AccessSpecialGroupFunction = (hyGroups) => {
+  const hasDoctoralWriteRight = hyGroups.some((iam) => doctoralWriteGroups.includes(iam))
+  if (!hasDoctoralWriteRight) return {}
+
+  const access = getAllProgrammeAccess(
+    { read: true, write: true, admin: false },
+    (program) => program.level === 'doctoral',
+  )
+  const specialGroup = { doctoral: true }
+
+  return { access, specialGroup }
+}
+
 /**
  * Grant admin access if the user belongs to studyprogramme's manager group and is a study program leader
  */
@@ -389,6 +403,7 @@ const getIAMRights: AccessSpecialGroupFunction = (hyGroups) => {
       getFacultyReadingRights,
       getDoctoralAccess,
       getDoctoralSchoolAccess,
+      getDoctoralWriteAccess,
       getProgrammeReadAccess,
       getProgrammeWriteAccess,
       getProgrammeAdminAccess,

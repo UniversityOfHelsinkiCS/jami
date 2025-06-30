@@ -490,6 +490,10 @@ const universityFormWritingGroups = [
   'hy-johtoryhma-ja-kansleri',
 ]
 
+const doctoralWriteGroups = [
+  'hy-ypa-tutto-toht'
+]
+
 const isSuperAdminIam = (iam) => superAdminGroups.includes(iam)
 
 const isAdminIam = (iam) => adminGroups.includes(iam)
@@ -579,6 +583,7 @@ const relevantIAMs = new Set(
     katselmusViewerIams,
     facultyWideWritingGroups,
     universityFormWritingGroups,
+    doctoralWriteGroups,
   ].flat(),
 )
 
@@ -618,4 +623,5 @@ export {
   relevantOrganisations,
   facultyWideWritingGroups,
   universityFormWritingGroups,
+  doctoralWriteGroups,
 }
