@@ -256,7 +256,9 @@ const getFacultyWriteRights: AccessSpecialGroupFunction = (hyGroups) => {
     const faculty = FACULTY_MAP[fc]
     access[faculty] = { read: true, write: true, admin: false }
   })
-  return { access, specialGroup: {} }
+
+  const specialGroup = { evaluationFaculty: true }
+  return { access, specialGroup }
 }
 
 /**
