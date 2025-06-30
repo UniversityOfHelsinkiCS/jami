@@ -13,7 +13,7 @@ describe.concurrent('Doctoral schools', () => {
       const json = await res.json()
 
       const numberOfDoctoralSchools = 33 // Go to data.ts and CTR+F "level: 'doctoral'"
-      expect(Object.keys(json).length).toBe(numberOfDoctoralSchools + 4) // +4 because 'specialGroup' field and 3 uni fields.
+      expect(Object.keys(json).length).toBe(numberOfDoctoralSchools + 1) // +1 because 'specialGroup' field (and 3 uni fields).
       expect(json).toHaveProperty('specialGroup')
       expect(json.specialGroup).toHaveProperty('doctoral')
       expect(json.specialGroup.doctoral).toBe(true)
