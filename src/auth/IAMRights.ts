@@ -268,9 +268,15 @@ const getUniversityFormWriteRights: AccessSpecialGroupFunction = (hyGroups) => {
   const hasUniversityFormWriteRight = hyGroups.some((iam) => universityFormWritingGroups.includes(iam))
   if (!hasUniversityFormWriteRight) return {}
 
+  const access = {
+    UNI: { read: true, write: true },
+    UNI_EN: { read: true, write: true },
+    UNI_SE: { read: true, write: true },
+  }
+
   const specialGroup = { universityForm: true }
 
-  return { access: {}, specialGroup }
+  return { access, specialGroup }
 }
 
 /**
