@@ -213,7 +213,7 @@ const getFacultyReadingRights: AccessSpecialGroupFunction = (hyGroups) => {
     const faculty = FACULTIES.find((faculty) => faculty.code === fc)
     const programmeCodes = faculty.programmes.map((p) => p.key)
     programmeCodes.forEach((code) => {
-      access[code] = { read: true, write: false, admin: false }
+      access[code] = { read: true, write: true, admin: false }
     })
   })
   return { access, specialGroup: {} }
