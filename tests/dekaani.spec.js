@@ -22,7 +22,7 @@ describe.concurrent('Dekaani', () => {
         'T920102',
       ].forEach((programme) => {
         expect(access[programme].read).toBe(true)
-        expect(access[programme].write).toBe(true)
+        expect(access[programme].write).toBeFalsy()
         expect(access[programme].admin).toBeFalsy()
       })
   })

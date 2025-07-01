@@ -213,7 +213,7 @@ const getFacultyReadingRights: AccessSpecialGroupFunction = (hyGroups) => {
     const faculty = FACULTIES.find((faculty) => faculty.code === fc)
     const programmeCodes = faculty.programmes.map((p) => p.key)
     programmeCodes.forEach((code) => {
-      access[code] = { read: true, write: true, admin: false }
+      access[code] = { read: true, write: false, admin: false }
     })
   })
   return { access, specialGroup: {} }
@@ -237,11 +237,32 @@ const getFacultyAdminRights: AccessSpecialGroupFunction = (hyGroups) => {
   return { access, specialGroup: {} }
 }
 
+
+
+/**
+ * Grant reading rights to programmes of faculties if user is kosu or dekaanaatti of some faculties
+ */
+const getFacultyWriteRights: AccessSpecialGroupFunction = (hyGroups) => {
+  // faculty codes from kosu iam
+  const facultyCodes = hyGroups
+    .flatMap(kosuIamToFaculties)
+    .filter(Boolean)
+  const access = {}
+  facultyCodes.forEach((fc) => {
+    const faculty = FACULTIES.find((faculty) => faculty.code === fc)
+    const programmeCodes = faculty.programmes.map((p) => p.key)
+    programmeCodes.forEach((code) => {
+      access[code] = { read: true, write: true, admin: false }
+    })
+  })
+  return { access, specialGroup: {} }
+}
+
 /**
  * Grant write rights to faculty programmes if user has certain hygroupcn
  * WIP
  */
-const getFacultyWriteRights: AccessSpecialGroupFunction = (hyGroups) => {
+const getFacultyFormWriteRights: AccessSpecialGroupFunction = (hyGroups) => {
   const hasFacultyWriteRight = hyGroups.some((iam) =>
     Object.keys(facultyWideWritingGroups).includes(iam),
   )
@@ -409,6 +430,7 @@ const getIAMRights: AccessSpecialGroupFunction = (hyGroups) => {
       getProgrammeAdminAccess,
       getFacultyAdminRights,
       getFacultyWriteRights,
+      getFacultyFormWriteRights,
       getUniversityFormWriteRights,
       getSpecialGroups,
     ]
