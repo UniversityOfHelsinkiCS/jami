@@ -370,6 +370,7 @@ const getProgrammeAdminAccess: AccessSpecialGroupFunction = (hyGroups) => {
   degreeCodes.forEach((code) => {
     access[code] = { read: true, write: true, admin: true }
   })
+
   return { access }
 }
 
@@ -424,13 +425,13 @@ const getIAMRights: AccessSpecialGroupFunction = (hyGroups) => {
       getFacultyReadingRights,
       getFacultyWriteRights,
       getFacultyAdminRights,
+      getFacultyFormWriteRights,
       getDoctoralAccess,
       getDoctoralSchoolAccess,
       getDoctoralWriteAccess,
       getProgrammeReadAccess,
       getProgrammeWriteAccess,
       getProgrammeAdminAccess,
-      getFacultyFormWriteRights,
       getUniversityFormWriteRights,
       getSpecialGroups,
     ]
