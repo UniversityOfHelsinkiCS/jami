@@ -16,7 +16,7 @@ test('User with no iam groups gets no access', async () => {
   const res = await api.post('', { userId: 'user-1', iamGroups: [] })
 
   expect(res.status).toBe(200)
-  expect(await res.json()).toEqual({
+ expect(await res.json()).toEqual({
     specialGroup: {},
   })
 })

@@ -3,6 +3,7 @@ import { api } from './util/utils'
 
 describe.concurrent('Doctoral schools', () => {
   it('Doctoral iam gives access to all doctoral schools & gives "doctoral" special group', async () => {
+    // hy-tine also give rights to UNI also
     ;['hy-tohtorikoulutus-johtoryhma', 'hy-tine'].forEach(async (iam) => {
       const res = await api.post('', {
         userId: 'doctoralschools-user',
@@ -12,8 +13,8 @@ describe.concurrent('Doctoral schools', () => {
       expect(res.status).toBe(200)
       const json = await res.json()
 
-      // const numberOfDoctoralSchools = 33 // Go to data.ts and CTR+F "level: 'doctoral'"
-      // expect(Object.keys(json).length).toBe(numberOfDoctoralSchools + 1) // +1 because 'specialGroup' field (and 3 uni fields).
+      const numberOfDoctoralSchools = 33 // Go to data.ts and CTR+F "level: 'doctoral'"
+      expect(Object.keys(json).length).toBe(numberOfDoctoralSchools + 1 + 3) // +1 because 'specialGroup' field (and 3 uni fields).
       expect(json).toHaveProperty('specialGroup')
       expect(json.specialGroup).toHaveProperty('doctoral')
       expect(json.specialGroup.doctoral).toBe(true)
