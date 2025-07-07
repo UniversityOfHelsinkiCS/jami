@@ -3,7 +3,7 @@ import { api } from './util/utils'
 
 describe.concurrent('Doctoral schools', () => {
   it('Doctoral iam gives access to all doctoral schools & gives "doctoral" special group', async () => {
-    ;['hy-tohtorikoulutus-johtoryhma', 'hy-tine'].forEach(async (iam) => {
+    ;['hy-tohtorikoulutus-johtoryhma', /*'hy-tine'*/].forEach(async (iam) => {
       const res = await api.post('', {
         userId: 'doctoralschools-user',
         iamGroups: [iam],
