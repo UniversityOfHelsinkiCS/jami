@@ -172,6 +172,10 @@ Like `GET /all-access`, but for a specified list of users. This endpoint also in
 ["grp-toska", "hy-employees"]
 ```
 
+### `GET /jory-map`
+
+- Response joryMap from auth/IAMConfig.ts
+
 ### Other routes
 
 `GET` `/ping` => `pong`
