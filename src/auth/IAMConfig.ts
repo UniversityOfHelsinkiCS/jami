@@ -602,6 +602,7 @@ const relevantOrganisations = RELEVANT_ORGANISATION_CODES.concat(
 )
 
 export {
+  joryMap,
   isSuperAdminIam,
   isAdminIam,
   isOpenUniIam,

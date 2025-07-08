@@ -13,6 +13,7 @@ import {
   relevantIAMs,
   relevantOrganisations,
   iamToFaculty,
+  joryMap,
 } from './auth/IAMConfig'
 import getIAMRights from './auth/IAMRights'
 import { hasFullSisuAccess } from './auth/sisuRoles'
@@ -137,6 +138,10 @@ app.post('/user-organisations', async (req, res) => {
   return res.send(Object.values(faculties))
 })
 
+app.get('/jory-map', async (_req, res) => {
+  return res.send(joryMap)
+})
+
 app.get('/:id', async (req, res) => {
   const { id } = req.params
 
@@ -166,8 +171,7 @@ connectToDatabase()
 
     const server = app.listen(PORT, () => {
       logger.info(
-        `Started on port ${PORT} with environment ${
-          inProduction ? 'production' : 'development'
+        `Started on port ${PORT} with environment ${inProduction ? 'production' : 'development'
         }`,
       )
     })
