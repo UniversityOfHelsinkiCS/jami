@@ -9,7 +9,7 @@ services:
       - PORT=3003
       - NODE_ENV=test
     ports:
-      - 3000:3003
+      - 3001:3003
     container_name: jami_dev
 
   db:

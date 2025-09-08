@@ -237,8 +237,6 @@ const getFacultyAdminRights: AccessSpecialGroupFunction = (hyGroups) => {
   return { access, specialGroup: {} }
 }
 
-
-
 /**
  * Grant reading rights to programmes of faculties if user is kosu or dekaanaatti of some faculties
  */
@@ -437,7 +435,17 @@ const getIAMRights: AccessSpecialGroupFunction = (hyGroups) => {
     ]
       .map((f) => f(hyGroups))
       .forEach((accessInfo) => {
-        access = { ...access, ...accessInfo.access }
+        for (const code in accessInfo.access) {
+          const newAccess = accessInfo.access[code]
+          const oldAccess = access[code]
+
+          access[code] = {
+            read: newAccess.read || oldAccess?.read,
+            write: newAccess.write || oldAccess?.write,
+            admin: newAccess.admin || oldAccess?.admin
+          }
+        }
+
         specialGroup = { ...specialGroup, ...accessInfo.specialGroup }
       })
 

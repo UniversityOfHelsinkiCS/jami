@@ -51,4 +51,47 @@ describe.concurrent('Dekaani', () => {
         expect(access[programme].admin).toBe(true)
       })
   })
+
+  it('R K-T works', async () => {
+    const res = await api.post('', {
+      userId: 'rkt',
+      iamGroups: [
+        'hy-employees',
+        'grp-oodikone-users',
+        'grp-oodikone-basic-users',
+        'hy-varadekaanit-opetus',
+        'hy-one',
+        'hy-eltdk-dekanaatti',
+        'grp-katselmus-eltdk',
+      ],
+    })
+
+    expect(res.status).toBe(200)
+    const access = await res.json()
+
+    expect(access['H90'].read).toBe(true)
+    expect(access['H90'].write).toBe(true)
+    expect(access['H90'].admin).toBeFalsy()
+
+    ;[
+      'KH90_001',
+      'MH90_001',
+      'T921108',
+      'T922106'
+    ].forEach((programme) => {
+      expect(access[programme].read).toBe(true)
+      expect(access[programme].write).toBe(true)
+      expect(access[programme].admin).toBe(true)
+    })
+
+    ;[
+      'KH10_001',
+      'MH30_005',
+      'T920102'
+    ].forEach((programme) => {
+      expect(access[programme].read).toBe(true)
+      expect(access[programme].write).toBeFalsy()
+      expect(access[programme].admin).toBeFalsy()
+    })
+  })
 })

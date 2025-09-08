@@ -13,7 +13,7 @@ services:
     volumes:
       - ./:/usr/src/app
     ports:
-      - 3000:3000
+      - 3001:3000
     container_name: jami_dev
     tty: true
 
@@ -22,8 +22,8 @@ services:
     environment:
       - PGDATA=/data
       - POSTGRES_PASSWORD=postgres
-    ports:
-      - 5432:5432
+    # ports:
+    #   - 5432:5432
     volumes:
       - pg_data:/data
     container_name: jami_db
