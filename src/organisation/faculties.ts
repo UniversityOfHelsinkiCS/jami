@@ -1675,6 +1675,17 @@ const kielikeskus: IndependentInstitute = {
   independentInstitute: true,
 } as const
 
+const aleksanteriInstituutti: IndependentInstitute = {
+  code: 'H401',
+  name: {
+    fi: 'Aleksanteri-instituutti',
+    en: 'Aleksanteri Institute',
+    sv: 'Alexanderinstitutet',
+  },
+  programmes: [],
+  independentInstitute: true,
+} as const
+
 export const FACULTIES: Readonly<Faculty[]> = [
   humanistinen,
   teologinen,
@@ -1689,4 +1700,5 @@ export const FACULTIES: Readonly<Faculty[]> = [
   maatalousMetsatieteellinen,
   elainlaaketieteellinen,
   kielikeskus,
+  aleksanteriInstituutti
 ] as const
