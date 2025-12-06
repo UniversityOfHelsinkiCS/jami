@@ -14,6 +14,7 @@ export const FACULTY_MAP = {
   'maatalous-metsätieteellinen': 'H80',
   eläinlääketieteellinen: 'H90',
   kielikeskus: 'H906',
+  aleksanteriInstituutti: 'H401',
 } as const
 
 export type FacultyCode = (typeof FACULTY_MAP)[keyof typeof FACULTY_MAP]
