@@ -138,7 +138,7 @@ app.post('/user-organisations', async (req, res) => {
   return res.send(Object.values(faculties))
 })
 
-app.get('/jory-map', async (_req, res) => {
+app.get('/jory-map', (_req, res) => {
   return res.send(joryMap)
 })
 
@@ -171,7 +171,8 @@ connectToDatabase()
 
     const server = app.listen(PORT, () => {
       logger.info(
-        `Started on port ${PORT} with environment ${inProduction ? 'production' : 'development'
+        `Started on port ${PORT} with environment ${
+          inProduction ? 'production' : 'development'
         }`,
       )
     })
