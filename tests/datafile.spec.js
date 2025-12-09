@@ -6,8 +6,8 @@ describe('Organisation data', () => {
   it('Has faculties in a valid format', () => {
     const faculties = data
 
-    // There should be 14 faculties
-    expect(faculties.length).toBe(14)
+    // There should be 13 faculties
+    expect(faculties.length).toBe(13)
 
     // Each faculty code should be unique
     const facultyCodes = faculties.map((faculty) => faculty.code)
