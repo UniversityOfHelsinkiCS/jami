@@ -8,7 +8,6 @@ const { combine, timestamp, printf, splat } = winston.format
 const transports = []
 
 const LOKI_HOST = 'http://loki-svc.toska-lokki.svc.cluster.local:3100'
-const LOKI_HOST = 'http://loki-svc.toska-lokki.svc.cluster.local:3100'
 
 transports.push(new winston.transports.File({ filename: 'debug.log' }))
 
