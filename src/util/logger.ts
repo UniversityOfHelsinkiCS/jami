@@ -8,6 +8,7 @@ const { combine, timestamp, printf, splat } = winston.format
 const transports = []
 
 const LOKI_HOST = 'http://loki-svc.toska-lokki.svc.cluster.local:3100'
+const LOKI_HOST = 'http://loki-svc.toska-lokki.svc.cluster.local:3100'
 
 transports.push(new winston.transports.File({ filename: 'debug.log' }))
 
@@ -16,14 +17,7 @@ if (!inProduction) {
     ({ level, message, timestamp, ...rest }) =>
       `${timestamp} ${level}: ${message} ${JSON.stringify(rest)}`,
   )
-
-  transports.push(
-    new LokiTransport({
-      host: LOKI_HOST,
-      labels: { app: 'jami', environment: process.env.NODE_ENV || 'production' }
-    })
-  )
-
+  
   transports.push(
     new winston.transports.Console({
       level: 'debug',
@@ -49,6 +43,14 @@ if (!inProduction) {
   )
 
   transports.push(new winston.transports.Console({ format: prodFormat }))
+
+  transports.push(
+    new LokiTransport({
+      host: LOKI_HOST,
+      labels: { app: 'jami', environment: process.env.NODE_ENV || 'production' }
+    })
+  )
+
 }
 
 const logger = winston.createLogger({ transports })
