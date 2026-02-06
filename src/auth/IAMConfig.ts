@@ -561,11 +561,11 @@ const iamToFaculty = (iam) => {
   }
 }
 
-const relevantIAMs = new Set(
+const relevantIAMs = new Set<string>(
   [
     Object.keys(joryMap),
     Object.keys(kojoMap),
-    Object.values(kojoMap),
+    Object.values(kojoMap).flat(),
     Object.keys(kosuFacultyMap),
     Object.keys(dekaaniFacultyMap),
     dekaani,
