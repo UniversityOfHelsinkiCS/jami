@@ -581,7 +581,7 @@ const relevantIAMs = new Set(
     oodikoneIams,
     feedbackLiaisonGroups,
     katselmusViewerIams,
-    facultyWideWritingGroups,
+    Object.keys(facultyWideWritingGroups),
     universityFormWritingGroups,
     doctoralWriteGroups,
   ].flat(),
