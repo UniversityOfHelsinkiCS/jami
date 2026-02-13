@@ -13,7 +13,7 @@ services:
     container_name: jami_dev
 
   db:
-    image: postgres:15.8
+    image: postgres:15.16
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=postgres
