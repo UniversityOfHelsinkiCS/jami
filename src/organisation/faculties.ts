@@ -152,6 +152,17 @@ const laaketieteellinen: Faculty = {
       international: false,
     },
     {
+      key: 'KH30_004',
+      name: {
+        fi: 'Lääketieteen ja hammaslääketieteen kandiohjelma',
+        en: "Bachelor's Programme for Medicine and Dentistry",
+        sv: 'Kandidatprogrammet för medicin och odontologi',
+      },
+      level: 'bachelor',
+      companionFaculties: [],
+      international: false,
+    },
+    {
       key: 'MH30_001',
       name: {
         fi: 'Lääketieteen koulutusohjelma',
