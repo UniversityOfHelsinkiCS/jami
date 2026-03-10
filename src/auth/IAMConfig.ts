@@ -284,6 +284,11 @@ const kojoMap = {
  * Maps kosu IAM to the name of TDKs, defined in data.js facultyMap
  */
 const kosuFacultyMap = {
+  'hy-ypa-kopa-kumpula-1': [],
+  'hy-ypa-kopa-kumpula-2': [],
+  'hy-ypa-kopa-viikki-1': [],
+  'hy-ypa-kopa-viikki-2': [],
+  'hy-ypa-kopa-viikki-kv': [],
   'hy-ypa-opa-kosu-kumpula': ['matemaattis-luonnontieteellinen'],
   'hy-ypa-opa-kosu-meilahti': ['lääketieteellinen'],
   'hy-ypa-opa-kosu-kruununhaka': [
@@ -392,10 +397,10 @@ const dekaaniFacultyMap = {
 }
 
 const universityWideGroups = [
-  'hy-ypa-opa-opintoasiainpaallikot',
-  'hy-ypa-opa-ospa',
+  'hy-ypa-opa-opintoasiainpaallikot', // vanha, poistetaan 1.9.2026
   'hy-rehtoraatti',
   'hy-one',
+  'hy-ypa-kopa-kehittaminen',
 ]
 
 const facultyIamsMap = {
