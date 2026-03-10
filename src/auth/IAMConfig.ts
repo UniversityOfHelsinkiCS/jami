@@ -289,6 +289,30 @@ const kosuFacultyMap = {
   'hy-ypa-kopa-viikki-1': [],
   'hy-ypa-kopa-viikki-2': [],
   'hy-ypa-kopa-viikki-kv': [],
+  'hy-ypa-kopa-viikki-johto': [
+    'bio- ja ympäristötieteellinen',
+    'farmasia',
+    'maatalous-metsätieteellinen',
+    'eläinlääketieteellinen',
+  ],
+  'hy-ypa-kopa-kumpula-johto': ['matemaattis-luonnontieteellinen'],
+  'hy-ypa-kopa-meilahti-johto': ['lääketieteellinen'],
+  'hy-ypa-kopa-kruununhaka-johto': [
+    'oikeustieteellinen',
+    'valtiotieteellinen',
+    'kasvatustieteellinen',
+    'humanistinen',
+    'teologinen',
+    'svenska',
+  ],
+  'hy-ypa-kopa-keskusta-johto': [
+    'oikeustieteellinen',
+    'valtiotieteellinen',
+    'kasvatustieteellinen',
+    'humanistinen',
+    'teologinen',
+    'svenska',
+  ], // alla poistuvat IAMit, poistetaan 1.9.2026
   'hy-ypa-opa-kosu-kumpula': ['matemaattis-luonnontieteellinen'],
   'hy-ypa-opa-kosu-meilahti': ['lääketieteellinen'],
   'hy-ypa-opa-kosu-kruununhaka': [
