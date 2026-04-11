@@ -457,7 +457,7 @@ const humanistinen: Faculty = {
       name: {
         fi: "Kielellisen diversiteetin ja digitaalisten ihmistieteiden maisteriohjelma",
         en: "Master's Programme in Linguistic Diversity and Digital Humanities",
-        sv: "Magisterprogrammet i språklig diversitet och digital humanior
+        sv: "Magisterprogrammet i språklig diversitet och digital humanior"
       },
       level: 'master',
       companionFaculties: [],
