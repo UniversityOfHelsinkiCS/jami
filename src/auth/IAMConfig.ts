@@ -284,10 +284,20 @@ const kojoMap = {
  * Maps kosu IAM to the name of TDKs, defined in data.js facultyMap
  */
 const kosuFacultyMap = {
-  'hy-ypa-kopa-kumpula-1': [],
-  'hy-ypa-kopa-kumpula-2': [],
-  'hy-ypa-kopa-viikki-1': [],
-  'hy-ypa-kopa-viikki-2': [],
+  'hy-ypa-kopa-kumpula-1': ['matemaattis-luonnontieteellinen'],
+  'hy-ypa-kopa-kumpula-2': ['matemaattis-luonnontieteellinen'],
+  'hy-ypa-kopa-viikki-1': [
+    'bio- ja ympäristötieteellinen',
+    'farmasia',
+    'maatalous-metsätieteellinen',
+    'eläinlääketieteellinen',
+  ],
+  'hy-ypa-kopa-viikki-2': [
+    'bio- ja ympäristötieteellinen',
+    'farmasia',
+    'maatalous-metsätieteellinen',
+    'eläinlääketieteellinen',
+  ],
   'hy-ypa-kopa-viikki-kv': [],
   'hy-ypa-kopa-viikki-johto': [
     'bio- ja ympäristötieteellinen',
@@ -297,12 +307,29 @@ const kosuFacultyMap = {
   ],
   'hy-ypa-kopa-kumpula-johto': ['matemaattis-luonnontieteellinen'],
   'hy-ypa-kopa-meilahti-johto': ['lääketieteellinen'],
+  'hy-ypa-kopa-meilahti-1': ['lääketieteellinen'],
+  'hy-ypa-kopa-meilahti-2': ['lääketieteellinen'],
   'hy-ypa-kopa-kruununhaka-johto': [
     'oikeustieteellinen',
     'valtiotieteellinen',
     'kasvatustieteellinen',
     'humanistinen',
     'teologinen',
+    'svenska',
+  ],
+  'hy-ypa-kopa-kruununhaka-1': [
+    'valtiotieteellinen',
+    'kasvatustieteellinen',
+    'svenska',
+  ],
+  'hy-ypa-kopa-kruununhaka-2': [
+    'valtiotieteellinen',
+    'kasvatustieteellinen',
+    'svenska',
+  ],
+  'hy-ypa-kopa-kruununhaka-3': [
+    'valtiotieteellinen',
+    'kasvatustieteellinen',
     'svenska',
   ],
   'hy-ypa-kopa-keskusta-johto': [
@@ -312,6 +339,21 @@ const kosuFacultyMap = {
     'humanistinen',
     'teologinen',
     'svenska',
+  ],
+  'hy-ypa-kopa-keskusta-1': [
+    'oikeustieteellinen',
+    'humanistinen',
+    'teologinen',
+  ],
+  'hy-ypa-kopa-keskusta-2': [
+    'oikeustieteellinen',
+    'humanistinen',
+    'teologinen',
+  ],
+  'hy-ypa-kopa-keskusta-3': [
+    'oikeustieteellinen',
+    'humanistinen',
+    'teologinen',
   ], // alla poistuvat IAMit, poistetaan 1.9.2026
   'hy-ypa-opa-kosu-kumpula': ['matemaattis-luonnontieteellinen'],
   'hy-ypa-opa-kosu-meilahti': ['lääketieteellinen'],
