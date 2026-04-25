@@ -509,61 +509,25 @@ const oodikoneIams = [
   'grp-oodikone-basic-users',
   'hy-ypa-henkilosto',
 ]
-
+// Lomake archive IAMs that not yet expired yet (20.4.2026)
 const katselmusViewerIams = [
   'grp-katselmus-ttdk',
   'grp-katselmus-oiktdk',
-  'grp-katselmus-ltdk',
   'grp-katselmus-humtdk',
-  'grp-katselmus-mltdk',
-  'grp-katselmus-ftdk',
-  'grp-katselmus-bytdk',
   'grp-katselmus-ktdk',
   'grp-katselmus-valttdk',
-  'grp-katselmus-sockom',
-  'grp-katselmus-mmtdk',
-  'grp-katselmus-eltdk',
-  'grp-katselmus-projektiryhma',
-  'grp-katselmus-arviointiryhma',
   'hy-johtoryhma-ja-kansleri',
   'hy-tutkijakoulu-johtokunta',
   'hy-tine',
   'hy-one',
 ]
-
-/**
- * Faculty wide writing rights for lomake faculty forms
- */
-const facultyWideWritingGroups = {
-  'grp-katselmus-ttdk': 'teologinen',
-  'grp-katselmus-oiktdk': 'oikeustieteellinen',
-  'grp-katselmus-ltdk': 'lääketieteellinen',
-  'grp-katselmus-humtdk': 'humanistinen',
-  'grp-katselmus-mltdk': 'matemaattis-luonnontieteellinen',
-  'grp-katselmus-ftdk': 'farmasia',
-  'grp-katselmus-bytdk': 'bio- ja ympäristötieteellinen',
-  'grp-katselmus-ktdk': 'kasvatustieteellinen',
-  'grp-katselmus-valttdk': 'valtiotieteellinen',
-  'grp-katselmus-sockom': 'svenska',
-  'grp-katselmus-mmtdk': 'maatalous-metsätieteellinen',
-  'grp-katselmus-eltdk': 'eläinlääketieteellinen',
-}
-
-/**
- * University form writing rights for lomake university form
- */
-const universityFormWritingGroups = [
-  'grp-katselmus-projektiryhma',
-  'hy-one',
-  'hy-tine',
-  'hy-tutkijakoulu-johtokunta',
-  'grp-katselmus-arviointiryhma',
-  'hy-johtoryhma-ja-kansleri',
+const lomakeWritingGroups = [
+  'hy-ypa-kopa-koulutuspaallikot',
+  'hy-kopa-koulutusasiantuntijat',
+  'hy-ypa-kopa-johtoryhma',
 ]
 
-const doctoralWriteGroups = [
-  'hy-ypa-tutto-toht'
-]
+const doctoralWriteGroups = ['hy-ypa-tutto-toht']
 
 const isSuperAdminIam = (iam) => superAdminGroups.includes(iam)
 
@@ -652,8 +616,7 @@ const relevantIAMs = new Set<string>(
     oodikoneIams,
     feedbackLiaisonGroups,
     katselmusViewerIams,
-    Object.keys(facultyWideWritingGroups),
-    universityFormWritingGroups,
+    lomakeWritingGroups,
     doctoralWriteGroups,
   ].flat(),
 )
@@ -693,7 +656,6 @@ export {
   isStudyLeaderGroup,
   relevantIAMs,
   relevantOrganisations,
-  facultyWideWritingGroups,
-  universityFormWritingGroups,
+  lomakeWritingGroups,
   doctoralWriteGroups,
 }

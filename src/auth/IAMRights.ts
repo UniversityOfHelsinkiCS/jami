@@ -15,14 +15,12 @@ import {
   opetusVaradekaani,
   isStudyLeaderGroup,
   dekaaniIamToFaculty,
-  facultyWideWritingGroups,
-  universityFormWritingGroups,
   doctoralWriteGroups,
 } from './IAMConfig'
 import { FACULTIES } from '../organisation/faculties'
 import { mapToDegreeCode } from './common'
 import { OrganisationAccess } from '../types'
-import { FACULTY_MAP, Programme } from '../organisation/types'
+import { Programme } from '../organisation/types'
 
 type AccessSpecialGroupFunction = (hyGroups: string[]) => {
   access?: { [programmeCode: string]: OrganisationAccess }
@@ -242,9 +240,7 @@ const getFacultyAdminRights: AccessSpecialGroupFunction = (hyGroups) => {
  */
 const getFacultyWriteRights: AccessSpecialGroupFunction = (hyGroups) => {
   // faculty codes from kosu iam
-  const facultyCodes = hyGroups
-    .flatMap(kosuIamToFaculties)
-    .filter(Boolean)
+  const facultyCodes = hyGroups.flatMap(kosuIamToFaculties).filter(Boolean)
   const access = {}
   facultyCodes.forEach((fc) => {
     const faculty = FACULTIES.find((faculty) => faculty.code === fc)
@@ -254,53 +250,6 @@ const getFacultyWriteRights: AccessSpecialGroupFunction = (hyGroups) => {
     })
   })
   return { access, specialGroup: {} }
-}
-
-/**
- * Grant write rights to faculty programmes if user has certain hygroupcn
- * WIP
- */
-const getFacultyFormWriteRights: AccessSpecialGroupFunction = (hyGroups) => {
-  const hasFacultyWriteRight = hyGroups.some((iam) =>
-    Object.keys(facultyWideWritingGroups).includes(iam),
-  )
-  if (!hasFacultyWriteRight) return {}
-
-  const facultyCodes = hyGroups
-    .map((group) => facultyWideWritingGroups[group])
-    .filter(Boolean)
-
-  const access = {}
-  facultyCodes.forEach((fc) => {
-    const code = FACULTY_MAP[fc]
-    access[code] = { read: true, write: true, admin: false }
-    const faculty = FACULTIES.find((faculty) => faculty.code === code)
-    const programmeCodes = faculty.programmes.map((p) => p.key)
-    programmeCodes.forEach((code) => {
-      access[code] = { read: true, write: false, admin: false }
-    })
-  })
-
-  const specialGroup = { evaluationFaculty: true }
-  return { access, specialGroup }
-}
-
-/**
- * Grant write rights to university form on Lomake might be unused
- */
-const getUniversityFormWriteRights: AccessSpecialGroupFunction = (hyGroups) => {
-  const hasUniversityFormWriteRight = hyGroups.some((iam) => universityFormWritingGroups.includes(iam))
-  if (!hasUniversityFormWriteRight) return {}
-
-  const access = {
-    UNI: { read: true, write: true },
-    UNI_EN: { read: true, write: true },
-    UNI_SE: { read: true, write: true },
-  }
-
-  const specialGroup = { universityForm: true }
-
-  return { access, specialGroup }
 }
 
 /**
@@ -335,7 +284,9 @@ const getDoctoralSchoolAccess: AccessSpecialGroupFunction = (hyGroups) => {
 }
 
 const getDoctoralWriteAccess: AccessSpecialGroupFunction = (hyGroups) => {
-  const hasDoctoralWriteRight = hyGroups.some((iam) => doctoralWriteGroups.includes(iam))
+  const hasDoctoralWriteRight = hyGroups.some((iam) =>
+    doctoralWriteGroups.includes(iam),
+  )
   if (!hasDoctoralWriteRight) return {}
 
   const access = getAllProgrammeAccess(
@@ -423,14 +374,12 @@ const getIAMRights: AccessSpecialGroupFunction = (hyGroups) => {
       getFacultyReadingRights,
       getFacultyWriteRights,
       getFacultyAdminRights,
-      getFacultyFormWriteRights,
       getDoctoralAccess,
       getDoctoralSchoolAccess,
       getDoctoralWriteAccess,
       getProgrammeReadAccess,
       getProgrammeWriteAccess,
       getProgrammeAdminAccess,
-      getUniversityFormWriteRights,
       getSpecialGroups,
     ]
       .map((f) => f(hyGroups))
