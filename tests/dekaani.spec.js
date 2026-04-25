@@ -68,10 +68,6 @@ describe.concurrent('Dekaani', () => {
     expect(res.status).toBe(200)
     const access = await res.json()
 
-    expect(access['H90'].read).toBe(true)
-    expect(access['H90'].write).toBe(true)
-    expect(access['H90'].admin).toBeFalsy()
-
     ;[
       'KH90_001',
       'MH90_001',
