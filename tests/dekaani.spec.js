@@ -62,7 +62,6 @@ describe.concurrent('Dekaani', () => {
         'hy-varadekaanit-opetus',
         'hy-one',
         'hy-eltdk-dekanaatti',
-        'grp-katselmus-eltdk',
       ],
     })
 
