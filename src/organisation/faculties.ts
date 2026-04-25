@@ -90,7 +90,7 @@ const oikeustieteellinen: Faculty = {
       name: {
         fi: 'Globaalia hallintoa koskevan oikeuden maisteriohjelma',
         en: "Master's Programme in Global Governance Law",
-        sv: "Magisterprogrammet i den globala styrelsens rättsliga frågor",
+        sv: 'Magisterprogrammet i den globala styrelsens rättsliga frågor',
       },
       level: 'master',
       companionFaculties: [],
@@ -231,9 +231,9 @@ const laaketieteellinen: Faculty = {
     {
       key: 'MH30_007',
       name: {
-        fi: "Organisaatiopsykologian maisteriohjelma",
+        fi: 'Organisaatiopsykologian maisteriohjelma',
         en: "Master's Programme in Organisational Psychology",
-        sv: "Magisterprogrammet i organisationspsykologi"
+        sv: 'Magisterprogrammet i organisationspsykologi',
       },
       level: 'master',
       companionFaculties: [],
@@ -242,9 +242,9 @@ const laaketieteellinen: Faculty = {
     {
       key: 'MH30_008',
       name: {
-        fi: "Lääketieteen lisensiaattiohjelma",
+        fi: 'Lääketieteen lisensiaattiohjelma',
         en: "Licentiate's Programme in Medicine",
-        sv: "Licentiatprogrammet i medicin"
+        sv: 'Licentiatprogrammet i medicin',
       },
       level: 'master',
       companionFaculties: [],
@@ -253,9 +253,9 @@ const laaketieteellinen: Faculty = {
     {
       key: 'MH30_009',
       name: {
-        fi: "Hammaslääketieteen lisensiaattiohjelma",
+        fi: 'Hammaslääketieteen lisensiaattiohjelma',
         en: "Licentiate's Programme in Dentistry",
-        sv: "Licentiatprogrammet i odontologi"
+        sv: 'Licentiatprogrammet i odontologi',
       },
       level: 'master',
       companionFaculties: [],
@@ -400,9 +400,9 @@ const humanistinen: Faculty = {
     {
       key: 'KH40_007',
       name: {
-        fi: "Liberal Arts and Sciences -kandiohjelma",
+        fi: 'Liberal Arts and Sciences -kandiohjelma',
         en: "Bachelor's Programme in Liberal Arts and Sciences",
-        sv: "Kandidatprogrammet i Liberal Arts and Sciences"
+        sv: 'Kandidatprogrammet i Liberal Arts and Sciences',
       },
       level: 'bachelor',
       companionFaculties: [],
@@ -444,9 +444,9 @@ const humanistinen: Faculty = {
     {
       key: 'MH40_004',
       name: {
-        fi: "Venäjän, Euraasian ja itäisen Euroopan tutkimuksen maisteriohjelma",
+        fi: 'Venäjän, Euraasian ja itäisen Euroopan tutkimuksen maisteriohjelma',
         en: "Master's Programme in Russian, Eurasian and Eastern European Studies",
-        sv: "Magisterprogrammet i studier i Ryssland, Eurasian och östra Europa"
+        sv: 'Magisterprogrammet i studier i Ryssland, Eurasian och östra Europa',
       },
       level: 'master',
       companionFaculties: [],
@@ -455,9 +455,9 @@ const humanistinen: Faculty = {
     {
       key: 'MH40_005',
       name: {
-        fi: "Kielellisen diversiteetin ja digitaalisten ihmistieteiden maisteriohjelma",
+        fi: 'Kielellisen diversiteetin ja digitaalisten ihmistieteiden maisteriohjelma',
         en: "Master's Programme in Linguistic Diversity and Digital Humanities",
-        sv: "Magisterprogrammet i språklig diversitet och digital humanior"
+        sv: 'Magisterprogrammet i språklig diversitet och digital humanior',
       },
       level: 'master',
       companionFaculties: [],
@@ -477,7 +477,7 @@ const humanistinen: Faculty = {
     {
       key: 'MH40_007',
       name: {
-        fi: "Suomen kielen ja suomalais-ugrilaisten kielten ja kulttuurien maisteriohjelma",
+        fi: 'Suomen kielen ja suomalais-ugrilaisten kielten ja kulttuurien maisteriohjelma',
         en: "Master's Programme in Finnish and Finno-Ugrian Languages and Cultures",
         sv: 'Magisterprogrammet i finska och finskugriska språk och kulturer',
       },
@@ -532,9 +532,9 @@ const humanistinen: Faculty = {
     {
       key: 'MH40_012',
       name: {
-        fi: "Alue- ja kulttuurintutkimuksen maisteriohjelma",
+        fi: 'Alue- ja kulttuurintutkimuksen maisteriohjelma',
         en: "Master's Programme in Area and Cultural Studies",
-        sv: "Magisterprogrammet i region- och kulturstudier",
+        sv: 'Magisterprogrammet i region- och kulturstudier',
       },
       level: 'master',
       companionFaculties: [],
@@ -728,9 +728,9 @@ const matemaattisLuonnontieteellinen: Faculty = {
     {
       key: 'KH50_009',
       name: {
-        fi: "Bachelor’s Programme in Atmospheric Sciences, commissioned education",
-        en: "Bachelor’s Programme in Atmospheric Sciences, commissioned education",
-        sv: "Bachelor’s Programme in Atmospheric Sciences, commissioned education"
+        fi: 'Bachelor’s Programme in Atmospheric Sciences, commissioned education',
+        en: 'Bachelor’s Programme in Atmospheric Sciences, commissioned education',
+        sv: 'Bachelor’s Programme in Atmospheric Sciences, commissioned education',
       },
       level: 'bachelor',
       companionFaculties: [],
@@ -739,9 +739,9 @@ const matemaattisLuonnontieteellinen: Faculty = {
     {
       key: 'KH50_010',
       name: {
-        fi: "Bachelor in Sustainability",
-        en: "Bachelor in Sustainability",
-        sv: "Bachelor in Sustainability"
+        fi: 'Bachelor in Sustainability',
+        en: 'Bachelor in Sustainability',
+        sv: 'Bachelor in Sustainability',
       },
       level: 'bachelor',
       companionFaculties: [],
@@ -908,9 +908,9 @@ const matemaattisLuonnontieteellinen: Faculty = {
     {
       key: 'MH50_015',
       name: {
-        fi: "Master’s Programme in Atmospheric Sciences, commissioned education",
-        en: "Master’s Programme in Atmospheric Sciences, commissioned education",
-        sv: "Master’s Programme in Atmospheric Sciences, commissioned education"
+        fi: 'Master’s Programme in Atmospheric Sciences, commissioned education',
+        en: 'Master’s Programme in Atmospheric Sciences, commissioned education',
+        sv: 'Master’s Programme in Atmospheric Sciences, commissioned education',
       },
       level: 'master',
       companionFaculties: [],
@@ -1029,9 +1029,9 @@ const farmasia: Faculty = {
     {
       key: 'MH55_002',
       name: {
-        fi: "Lääketutkimuksen, farmaseuttisen tuotekehityksen ja lääkitysturvallisuuden maisteriohjelma",
-        en: "Master’s Programme in Pharmaceutical Research, Development and Safety",
-        sv: "Magisterprogrammet i farmaceutisk forskning, utveckling och säkerhet"
+        fi: 'Lääketutkimuksen, farmaseuttisen tuotekehityksen ja lääkitysturvallisuuden maisteriohjelma',
+        en: 'Master’s Programme in Pharmaceutical Research, Development and Safety',
+        sv: 'Magisterprogrammet i farmaceutisk forskning, utveckling och säkerhet',
       },
       level: 'master',
       companionFaculties: [],
@@ -1154,9 +1154,9 @@ const bioYmparistotieteellinen: Faculty = {
     {
       key: 'MH57_006',
       name: {
-        fi: "Luonto, yhteiskunta ja ympäristöratkaisut -maisteriohjelma",
+        fi: 'Luonto, yhteiskunta ja ympäristöratkaisut -maisteriohjelma',
         en: "Master's Programme in Nature, Society and Environmental Solutions",
-        sv: "Magisterprogrammet i natur, samhälle och miljölösningar"
+        sv: 'Magisterprogrammet i natur, samhälle och miljölösningar',
       },
       level: 'master',
       companionFaculties: [],
@@ -1277,7 +1277,7 @@ const kasvatustieteellinen: Faculty = {
       name: {
         fi: 'Muuttuvan kasvatuksen ja koulutuksen maisteriohjelma',
         en: "Master's Programme in Changing Education",
-        sv: "Magisterprogrammet utbildning i förändring",
+        sv: 'Magisterprogrammet utbildning i förändring',
       },
       level: 'master',
       companionFaculties: [],
@@ -1473,9 +1473,9 @@ const valtiotieteellinen: Faculty = {
     {
       key: 'MH70_010',
       name: {
-        fi: "International Masters in Economy, State & Society",
-        en: "International Masters in Economy, State & Society",
-        sv: "International Masters in Economy, State & Society"
+        fi: 'International Masters in Economy, State & Society',
+        en: 'International Masters in Economy, State & Society',
+        sv: 'International Masters in Economy, State & Society',
       },
       level: 'master',
       companionFaculties: [],
@@ -1541,7 +1541,7 @@ const sockom: Faculty = {
       key: 'KH74_001',
       name: {
         en: "Bachelor's Programme in Social Sciences",
-        fi: "Yhteiskuntatieteiden kandiohjelma",
+        fi: 'Yhteiskuntatieteiden kandiohjelma',
         sv: 'Kandidatprogrammet i samhällsvetenskaper',
       },
       level: 'bachelor',
@@ -1606,9 +1606,9 @@ const maatalousMetsatieteellinen: Faculty = {
     {
       key: 'KH80_005',
       name: {
-        fi: "Elintarviketalouden ja kulutuksen kandiohjelma",
+        fi: 'Elintarviketalouden ja kulutuksen kandiohjelma',
         en: "Bachelor's Programme in Food Economy and Consumption",
-        sv: "Kandidatprogrammet i livsmedelsekonomi och konsumtion"
+        sv: 'Kandidatprogrammet i livsmedelsekonomi och konsumtion',
       },
       level: 'bachelor',
       companionFaculties: [],
@@ -1617,9 +1617,9 @@ const maatalousMetsatieteellinen: Faculty = {
     {
       key: 'KH80_006',
       name: {
-        fi: "Ympäristön ja maatalouden taloustieteen kandiohjelma",
+        fi: 'Ympäristön ja maatalouden taloustieteen kandiohjelma',
         en: "Bachelor's Programme in Environmental and Agricultural Economics",
-        sv: "Kandidatprogrammet i miljö- och lantbruksekonomi"
+        sv: 'Kandidatprogrammet i miljö- och lantbruksekonomi',
       },
       level: 'bachelor',
       companionFaculties: [],
@@ -1718,7 +1718,7 @@ const maatalousMetsatieteellinen: Faculty = {
       name: {
         fi: "Master's Programme in Green Business",
         en: "Master's Programme in Green Business",
-        sv: "Master's Programme in Green Business"
+        sv: "Master's Programme in Green Business",
       },
       level: 'master',
       companionFaculties: [], // best guess
@@ -1727,9 +1727,9 @@ const maatalousMetsatieteellinen: Faculty = {
     {
       key: 'MH80_011',
       name: {
-        fi: "Uusiutuvien luonnonvarojen kestävän käytön teknologiat -maisteriohjelma",
+        fi: 'Uusiutuvien luonnonvarojen kestävän käytön teknologiat -maisteriohjelma',
         en: "Master's Programme in Technologies for Sustainable Use of Renewable Resources",
-        sv: "Magisterprogrammet i teknologi för hållbar användning av förnybara naturresurser"
+        sv: 'Magisterprogrammet i teknologi för hållbar användning av förnybara naturresurser',
       },
       level: 'master',
       companionFaculties: [],
