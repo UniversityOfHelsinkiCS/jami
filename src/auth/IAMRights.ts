@@ -57,8 +57,8 @@ const getSuperAdmin: AccessSpecialGroupFunction = (hyGroups) => {
 }
 
 /**
- * NOT USED (wait is this used?)
- * Grant admin rights if the user has correct iams (eg. grp-ospa)
+ * Used primarly for lomake
+ * Grant admin rights if the user has correct iams (eg. grp-ko-laadunhallinta)
  * @returns admin special group
  */
 const getAdmin: AccessSpecialGroupFunction = (hyGroups) => {

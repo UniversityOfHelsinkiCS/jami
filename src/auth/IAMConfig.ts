@@ -494,7 +494,7 @@ const kosuGroups = [...Object.keys(kosuFacultyMap)]
 
 const superAdminGroups = ['grp-toska']
 
-const adminGroups = ['grp-ospa']
+const adminGroups = ['grp-ko-laadunhallinta']
 
 const openUniGroups = ['hy-ypa-opa-dojo']
 
