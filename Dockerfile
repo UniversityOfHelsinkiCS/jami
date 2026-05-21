@@ -9,6 +9,7 @@ WORKDIR /opt/app-root/src
 
 COPY package*.json ./
 COPY tsconfig.json ./
+RUN curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh -s -- --ci
 
 RUN npm ci --include=dev
 
