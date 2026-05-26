@@ -54,7 +54,7 @@ describe.concurrent('Norppa', () => {
       userId: 'tkt-norppa-haba',
       iamGroups: [
         'hy-ltdk-psyk-jory', // ['300-K001', '300-M004']
-        'hy-ltdk-ll-jory', // ['300-M001' '300-M003']
+        'hy-ltdk-ll-jory', // ['300-M001' '300-M003', '300-K004']
         'hy-palautevastaavat',
       ],
     })
@@ -66,9 +66,10 @@ describe.concurrent('Norppa', () => {
     const specialGroup = access.specialGroup
 
     expect(specialGroup).toHaveProperty('feedbackLiaison')
-    expect(specialGroup.feedbackLiaison).toHaveLength(4)
+    expect(specialGroup.feedbackLiaison).toHaveLength(5)
     expect(specialGroup.feedbackLiaison).toContain('KH30_001')
     expect(specialGroup.feedbackLiaison).toContain('MH30_004')
     expect(specialGroup.feedbackLiaison).toContain('MH30_001')
+    expect(specialGroup.feedbackLiaison).toContain('KH30_004')
   })
 })
