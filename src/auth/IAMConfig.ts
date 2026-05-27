@@ -160,6 +160,7 @@ const kojoMap = {
   'hy-ltdk-ll-jory': 'hy-ltdk-maisteri-kojot',
   'hy-ltdk-tmed-jory': 'hy-ltdk-maisteri-kojot',
   // 'hy-ltdk-hll-jory': 'hy-ltdk-maisteri-kojot',
+  'hy-ltdk-kandi-joryt': 'hy-ltdk-kandi-kojot',
   'hy-ltdk-terv-jory': 'hy-ltdk-maisteri-kojot',
   'hy-humtdk-filk-jory': 'hy-humtdk-kandi-kojot',
   'hy-humtdk-ttk-jory': 'hy-humtdk-kandi-kojot',
