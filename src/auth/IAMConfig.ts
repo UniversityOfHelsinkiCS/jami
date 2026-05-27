@@ -22,7 +22,7 @@ const joryMap: Record<string, string | string[]> = {
   'hy-ltdk-ll-jory': ['300-M001', '300-M003', '300-K004'], // ll and hll are special
   'hy-ltdk-tmed-jory': '300-M002',
   'hy-ltdk-hll-jory': ['300-M003', '300-M001', '300-K004'],
-  'hy-ltdk-kandi-joryt: ['300-M003', '300-M001', '300-K004'],
+  'hy-ltdk-kandi-joryt': ['300-M003', '300-M001', '300-K004'],
   'hy-ltdk-terv-jory': '300-M006',
   'hy-humtdk-filk-jory': '400-K001',
   'hy-humtdk-ttk-jory': '400-K002',
