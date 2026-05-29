@@ -1,7 +1,6 @@
 import {
   isSuperAdminIam,
   isAdminIam,
-  isOpenUniIam,
   isHyOneIam,
   isJoryIam,
   isKosuIam,
@@ -82,19 +81,6 @@ const getEmployee: AccessSpecialGroupFunction = (hyGroups) => {
 
 /**
  * Needed for Oodikone
- * Grant open uni rights if the user has correct iams (eg. hy-ypa-opa-dojo)
- * @returns openUni special group
- */
-const getOpenUni: AccessSpecialGroupFunction = (hyGroups) => {
-  const isOpenUni = hyGroups.some(isOpenUniIam)
-  if (isOpenUni) {
-    return { specialGroup: { openUni: true } }
-  }
-  return {}
-}
-
-/**
- * Needed for Oodikone
  * Grant teachers rights if the user has correct iams (eg. hy-one)
  * @returns hyOne special group
  */
@@ -162,7 +148,6 @@ const getSpecialGroups: AccessSpecialGroupFunction = (hyGroups) => {
       getEmployee,
       getAdmin,
       getSuperAdmin,
-      getOpenUni,
       getHyOne,
       getJory,
       getKosu,

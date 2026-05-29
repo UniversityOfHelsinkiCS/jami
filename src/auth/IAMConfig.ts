@@ -498,8 +498,6 @@ const superAdminGroups = ['grp-toska']
 
 const adminGroups = ['grp-ko-laadunhallinta']
 
-const openUniGroups = ['hy-ypa-opa-dojo']
-
 const hyOneGroups = ['hy-one'] // opintoasiainneuvosto
 
 const employeeGroups = ['hy-employees']
@@ -534,8 +532,6 @@ const doctoralWriteGroups = ['hy-ypa-tutto-toht']
 const isSuperAdminIam = (iam) => superAdminGroups.includes(iam)
 
 const isAdminIam = (iam) => adminGroups.includes(iam)
-
-const isOpenUniIam = (iam) => openUniGroups.includes(iam)
 
 const isHyOneIam = (iam) => hyOneGroups.includes(iam)
 
@@ -612,7 +608,6 @@ const relevantIAMs = new Set<string>(
     universityWideGroups,
     superAdminGroups,
     adminGroups,
-    openUniGroups,
     hyOneGroups,
     employeeGroups,
     oodikoneIams,
@@ -641,7 +636,6 @@ export {
   joryMap,
   isSuperAdminIam,
   isAdminIam,
-  isOpenUniIam,
   isHyOneIam,
   isJoryIam,
   isKosuIam,
