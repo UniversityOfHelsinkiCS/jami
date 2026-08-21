@@ -16,7 +16,7 @@ if (!inProduction) {
     ({ level, message, timestamp, ...rest }) =>
       `${timestamp} ${level}: ${message} ${JSON.stringify(rest)}`,
   )
-  
+
   transports.push(
     new winston.transports.Console({
       level: 'debug',
@@ -46,10 +46,12 @@ if (!inProduction) {
   transports.push(
     new LokiTransport({
       host: LOKI_HOST,
-      labels: { app: 'jami', environment: process.env.NODE_ENV || 'production' }
-    })
+      labels: {
+        app: 'jami',
+        environment: process.env.NODE_ENV || 'production',
+      },
+    }),
   )
-
 }
 
 const logger = winston.createLogger({ transports })
