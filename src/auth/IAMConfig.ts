@@ -5,7 +5,7 @@ import { FACULTY_MAP } from '../organisation/types'
 const ANY = 'ANY'
 
 /**
- * Map from jory IAM to one or more programmes
+ * Map from jory IAM to one or more programmes.
  */
 const joryMap: Record<string, string | string[]> = {
   'grp-avoin-johto': 'H930',
@@ -108,7 +108,7 @@ const joryMap: Record<string, string | string[]> = {
   'hy-mmtdk-mmb-jory': '800-M007',
   'hy-eltdk-elk-jory': '900-K001',
   'hy-eltdk-ell-jory': '900-M001',
-  'hy-dp-dptheol-jory': 'T920101',
+  'hy-dp-dptheol-jory': 'T920101', // note, in this list old doctoral programmes have programme code, not organisation code.
   'hy-dp-dplaw-jory': 'T920102',
   'hy-dp-philartsoc-jory': 'T920111',
   'hy-dp-dphistcult-jory': 'T920103',

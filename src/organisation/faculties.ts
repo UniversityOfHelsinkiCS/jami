@@ -41,6 +41,17 @@ const teologinen: Faculty = {
       companionFaculties: ['kasvatustieteellinen', 'humanistinen'],
       international: false,
     },
+    {
+      key: 'DP010',
+      name: {
+        fi: 'Teologian ja uskonnontutkimuksen tohtoriohjelma',
+        en: 'Doctoral Programme in Theology and Religious Studies',
+        sv: 'Doktorandprogrammet i teologi och religionsforskning',
+      },
+      level: 'doctoral',
+      companionFaculties: ['kasvatustieteellinen', 'humanistinen'],
+      international: false,
+    },
   ],
 } as const
 
@@ -98,6 +109,17 @@ const oikeustieteellinen: Faculty = {
     },
     {
       key: 'T920102',
+      name: {
+        fi: 'Oikeustieteen tohtoriohjelma',
+        en: 'Doctoral Programme in Law',
+        sv: 'Doktorandprogrammet i juridik',
+      },
+      level: 'doctoral',
+      companionFaculties: [],
+      international: false,
+    },
+    {
+      key: 'DP009',
       name: {
         fi: 'Oikeustieteen tohtoriohjelma',
         en: 'Doctoral Programme in Law',
@@ -315,6 +337,28 @@ const laaketieteellinen: Faculty = {
         fi: 'Ihmisen käyttäytymisen tohtoriohjelma',
         en: 'Doctoral Programme in Human Behaviour',
         sv: 'Doktorandprogrammet i mänskligt beteende',
+      },
+      level: 'doctoral',
+      companionFaculties: [],
+      international: false,
+    },
+    {
+      key: 'DP006',
+      name: {
+        fi: 'Kliininen tohtoriohjelma',
+        en: 'Doctoral Programme in Clinical Research',
+        sv: 'Doktorandprogrammet i klinisk forskning',
+      },
+      level: 'doctoral',
+      companionFaculties: [],
+      international: false,
+    },
+    {
+      key: 'DP012',
+      name: {
+        fi: 'Väestön terveyden ja ihmisen käyttäytymisen tohtoriohjelma',
+        en: 'Doctoral Programme in Population Health and Human Behaviour',
+        sv: 'Doktorandprogrammet i folkhälsovetenskap och mänskligt beteende',
       },
       level: 'doctoral',
       companionFaculties: [],
@@ -624,6 +668,17 @@ const humanistinen: Faculty = {
       },
       level: 'doctoral',
       companionFaculties: ['valtiotieteellinen'],
+      international: false,
+    },
+    {
+      key: 'DP004',
+      name: {
+        fi: 'Humanististen tieteiden tohtoriohjelma',
+        en: 'Doctoral programme in the Humanities',
+        sv: 'Doktorandprogrammet i humanistiska vetenskaper',
+      },
+      level: 'doctoral',
+      companionFaculties: [],
       international: false,
     },
   ],
@@ -993,6 +1048,17 @@ const matemaattisLuonnontieteellinen: Faculty = {
       companionFaculties: [],
       international: false,
     },
+    {
+      key: 'DP008',
+      name: {
+        fi: 'Matemaattis-luonnontieteellinen tohtoriohjelma',
+        en: 'Doctoral Programme in Science',
+        sv: 'Doktorandprogrammet i matematisk-naturvetenskapliga ämnen',
+      },
+      level: 'doctoral',
+      companionFaculties: [],
+      international: false,
+    },
   ],
 } as const
 
@@ -1030,7 +1096,7 @@ const farmasia: Faculty = {
       key: 'MH55_002',
       name: {
         fi: 'Lääketutkimuksen, farmaseuttisen tuotekehityksen ja lääkitysturvallisuuden maisteriohjelma',
-        en: 'Master’s Programme in Pharmaceutical Research, Development and Safety',
+        en: 'Master`s Programme in Pharmaceutical Research, Development and Safety',
         sv: 'Magisterprogrammet i farmaceutisk forskning, utveckling och säkerhet',
       },
       level: 'master',
@@ -1039,6 +1105,21 @@ const farmasia: Faculty = {
     },
     {
       key: 'T921105',
+      name: {
+        fi: 'Lääketutkimuksen tohtoriohjelma',
+        en: 'Doctoral Programme in Drug Research',
+        sv: 'Doktorandprogrammet i läkemedelsforskning',
+      },
+      level: 'doctoral',
+      companionFaculties: [
+        'eläinlääketieteellinen',
+        'lääketieteellinen',
+        'matemaattis-luonnontieteellinen',
+      ],
+      international: false,
+    },
+    {
+      key: 'DP007',
       name: {
         fi: 'Lääketutkimuksen tohtoriohjelma',
         en: 'Doctoral Programme in Drug Research',
@@ -1239,6 +1320,28 @@ const bioYmparistotieteellinen: Faculty = {
       companionFaculties: ['maatalous-metsätieteellinen'],
       international: false,
     },
+    {
+      key: 'DP002',
+      name: {
+        fi: 'Ekologian, evoluution ja yhteiskunnan ympäristökestävyyden tohtoriohjelma',
+        en: 'Doctoral Programme in Ecology, Evolution and Environmental Sustainability in Society',
+        sv: 'Doktorandprogrammet i ekologi, evolution och samhällelig miljömässig hållbarhet',
+      },
+      level: 'doctoral',
+      companionFaculties: [],
+      international: false,
+    },
+    {
+      key: 'DP003',
+      name: {
+        fi: 'Elämän molekyyli- ja solutason järjestelmien tohtoriohjelma',
+        en: 'Doctoral Programme in Molecular and Cellular Systems of Life',
+        sv: 'Doktorandprogrammet i livets molekylära och cellulära system',
+      },
+      level: 'doctoral',
+      companionFaculties: [],
+      international: false,
+    },
   ],
 } as const
 
@@ -1300,6 +1403,17 @@ const kasvatustieteellinen: Faculty = {
         fi: 'Kognition, oppimisen, opetuksen ja kommunikaation tohtoriohjelma',
         en: 'Doctoral Programme in Cognition, Learning, Instruction and Communication',
         sv: 'Doktorandprogrammet i kognition, inlärning, undervisning och kommunikation',
+      },
+      level: 'doctoral',
+      companionFaculties: [],
+      international: false,
+    },
+    {
+      key: 'DP005',
+      name: {
+        fi: 'Kasvatuksen, koulutuksen ja oppimisen tohtoriohjelma',
+        en: 'Doctoral Programme in Education, Schooling, and Learning',
+        sv: 'Doktorandprogrammet i pedagogik, utbildning och lärande',
       },
       level: 'doctoral',
       companionFaculties: [],
@@ -1524,6 +1638,17 @@ const valtiotieteellinen: Faculty = {
         'maatalous-metsätieteellinen',
         'matemaattis-luonnontieteellinen',
       ],
+      international: false,
+    },
+    {
+      key: 'DP014',
+      name: {
+        fi: 'Yhteiskuntatieteiden tohtoriohjelma',
+        en: 'Doctoral Programme in Social Sciences',
+        sv: 'Doktorandprogrammet i samhällsvetenskaper',
+      },
+      level: 'doctoral',
+      companionFaculties: [],
       international: false,
     },
   ],
@@ -1760,6 +1885,17 @@ const maatalousMetsatieteellinen: Faculty = {
       ],
       international: false,
     },
+    {
+      key: 'DP011',
+      name: {
+        fi: 'Uusiutuvien luonnonvarojen monitieteinen tohtoriohjelma',
+        en: 'Doctoral programme in multidisciplinary research in renewable natural resources',
+        sv: 'Doktorandprogrammet i mångvetenskaplig forskning om förnybara naturresurser',
+      },
+      level: 'doctoral',
+      companionFaculties: [],
+      international: false,
+    },
   ],
 }
 
@@ -1813,6 +1949,17 @@ const elainlaaketieteellinen: Faculty = {
       },
       level: 'doctoral',
       companionFaculties: ['maatalous-metsätieteellinen'],
+      international: false,
+    },
+    {
+      key: 'DP013',
+      name: {
+        fi: 'Yhteisen terveyden tohtoriohjelma',
+        en: 'Doctoral Programme in One Health"',
+        sv: 'Doktorandprogrammet i gemensam hälsa',
+      },
+      level: 'doctoral',
+      companionFaculties: [],
       international: false,
     },
   ],

@@ -1,16 +1,19 @@
 const isNumber = (value: string) => !Number.isNaN(parseInt(value, 10))
 
-/**
- * TODO: Better explanation needed. Remove hardcodings
- */
 export const normalizeOrganisationCode = (code: string) => {
+  // Old doctoral programmes
   if (code.startsWith('T')) {
     return code.replace('T', '7')
   }
+  // New doctoral programmes
+  if (code.startsWith('DP')) {
+    return code.replace('P', 'S')
+  }
+  // Faculty codes
   if (!code.includes('_')) {
     return code
   }
-
+  // Bachelor and master programme codes to organisation codes
   const [left, right] = code.split('_')
   const prefix = [...left].filter(isNumber).join('')
   const suffix = `${left[0]}${right}`
@@ -18,9 +21,6 @@ export const normalizeOrganisationCode = (code: string) => {
   return providercode
 }
 
-/**
- * TODO: Better explanation needed. Remove hardcodings
- */
 export const mapToDegreeCode = (organisationCode: string) => {
   if (!organisationCode) return ''
 
@@ -28,13 +28,18 @@ export const mapToDegreeCode = (organisationCode: string) => {
   if (isKielikeskusOrAvoin) {
     return organisationCode
   }
+  // New doctoral programmes
+  if (organisationCode.startsWith('DS') && organisationCode.length === 5) {
+    return organisationCode.replace('S', 'P')
+  }
 
   if (organisationCode.length < 7) return ''
+  // Old doctoral programmes use degree code while other have organisation code in joryMap
   const doctoral = organisationCode[0] === 'T'
   if (doctoral) {
     return organisationCode
   }
-
+  // Make organisation codes to degree codes, for example 300-M003 to MH30_003
   const [start, end] = organisationCode.split('-')
   if (end && end.length < 3) return ''
   if (start.length < 2) return ''
