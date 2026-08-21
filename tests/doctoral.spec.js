@@ -3,7 +3,7 @@ import { api } from './util/utils'
 
 describe.concurrent('Doctoral schools', () => {
   it('Doctoral iam gives access to all doctoral schools & gives "doctoral" special group', async () => {
-    ;['hy-tohtorikoulutus-johtoryhma', /*'hy-tine'*/].forEach(async (iam) => {
+    ;['hy-tohtorikoulutus-johtoryhma' /*'hy-tine'*/].forEach(async (iam) => {
       const res = await api.post('', {
         userId: 'doctoralschools-user',
         iamGroups: [iam],
@@ -12,7 +12,7 @@ describe.concurrent('Doctoral schools', () => {
       expect(res.status).toBe(200)
       const json = await res.json()
 
-      const numberOfDoctoralSchools = 33 // Go to data.ts and CTR+F "level: 'doctoral'"
+      const numberOfDoctoralSchools = 33 + 14 // Go to data.ts and CTR+F "level: 'doctoral'" old + new programmes
       expect(Object.keys(json).length).toBe(numberOfDoctoralSchools + 1) // +1 because 'specialGroup' field.
       expect(json).toHaveProperty('specialGroup')
       expect(json.specialGroup).toHaveProperty('doctoral')
@@ -29,23 +29,23 @@ describe.concurrent('Doctoral schools', () => {
     expect(res.status).toBe(200)
     const json = await res.json()
 
-      ;[
-        'T920101',
-        'T920102',
-        'T920103',
-        'T920104',
-        'T920105',
-        'T920106',
-        'T920107',
-        'T920108',
-        'T920109',
-        'T920110',
-        'T920111',
-      ].forEach((programme) => {
-        expect(json).toHaveProperty(programme)
-        expect(json[programme].read).toBe(true)
-        expect(json[programme].write).toBeFalsy()
-        expect(json[programme].admin).toBeFalsy()
-      })
+    ;[
+      'T920101',
+      'T920102',
+      'T920103',
+      'T920104',
+      'T920105',
+      'T920106',
+      'T920107',
+      'T920108',
+      'T920109',
+      'T920110',
+      'T920111',
+    ].forEach((programme) => {
+      expect(json).toHaveProperty(programme)
+      expect(json[programme].read).toBe(true)
+      expect(json[programme].write).toBeFalsy()
+      expect(json[programme].admin).toBeFalsy()
+    })
   })
 })
