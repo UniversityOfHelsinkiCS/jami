@@ -343,6 +343,17 @@ const laaketieteellinen: Faculty = {
       international: false,
     },
     {
+      key: 'DP001',
+      name: {
+        fi: 'Biolääketieteellinen tohtoriohjelma',
+        en: 'Doctoral Programme in Biomedicine',
+        sv: 'Doktorandprogrammet för biomedicin',
+      },
+      level: 'doctoral',
+      companionFaculties: [],
+      international: false,
+    },
+    {
       key: 'DP006',
       name: {
         fi: 'Kliininen tohtoriohjelma',
