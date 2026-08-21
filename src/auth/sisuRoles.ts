@@ -33,7 +33,7 @@ export const hasFullSisuAccess = async (personId: string) => {
 
   try {
     const { data } = await importerClient.get(`/jami/sisuroles/${personId}`)
-  
+
     if (data && Array.isArray(data)) {
       const hasFullAccessToSisu = data.some((role) =>
         sisuRolesGivingFullAccess.includes(role.accessroleId),
@@ -44,7 +44,7 @@ export const hasFullSisuAccess = async (personId: string) => {
       })
       return hasFullAccessToSisu
     }
-    return false 
+    return false
   } catch (error) {
     console.error('Error fetching Sisu roles:', error)
     return false

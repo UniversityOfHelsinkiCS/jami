@@ -313,7 +313,6 @@ const getProgrammeAdminAccess: AccessSpecialGroupFunction = (hyGroups) => {
  * Grant write and read access if the user belongs to employees group and studyprogramme's manager group
  * @param {string[]} hyGroups
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const getProgrammeWriteAccess: AccessSpecialGroupFunction = (hyGroups) => {
   if (!hyGroups.some(isEmployeeIam)) return {}
   const orgCodes = hyGroups
