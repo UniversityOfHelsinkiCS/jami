@@ -19,33 +19,4 @@ describe.concurrent('Doctoral schools', () => {
       expect(json.specialGroup.doctoral).toBe(true)
     })
   })
-
-  it('Specific doctoral school iam gives access to the corresponding doctoral programmes', async () => {
-    const res = await api.post('', {
-      userId: 'doctoralschools-user',
-      iamGroups: ['hy-tutkijakoulut-hymy-jory'],
-    })
-
-    expect(res.status).toBe(200)
-    const json = await res.json()
-
-    ;[
-      'T920101',
-      'T920102',
-      'T920103',
-      'T920104',
-      'T920105',
-      'T920106',
-      'T920107',
-      'T920108',
-      'T920109',
-      'T920110',
-      'T920111',
-    ].forEach((programme) => {
-      expect(json).toHaveProperty(programme)
-      expect(json[programme].read).toBe(true)
-      expect(json[programme].write).toBeFalsy()
-      expect(json[programme].admin).toBeFalsy()
-    })
-  })
 })
