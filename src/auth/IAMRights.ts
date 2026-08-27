@@ -9,7 +9,6 @@ import {
   isFeedbackLiaisonIam,
   joryIamToOrganisationCode,
   isEmployeeIam,
-  iamToDoctoralSchool,
   kosuIamToFaculties,
   opetusVaradekaani,
   isStudyLeaderGroup,
@@ -144,19 +143,19 @@ const getKosu: AccessSpecialGroupFunction = (hyGroups) => {
 const getSpecialGroups: AccessSpecialGroupFunction = (hyGroups) => {
   let specialGroup = {}
 
-    ;[
-      getEmployee,
-      getAdmin,
-      getSuperAdmin,
-      getHyOne,
-      getJory,
-      getKosu,
-      getFeedbackLiaison,
-    ]
-      .map((f) => f(hyGroups))
-      .forEach(({ specialGroup: newSpecialGroup }) => {
-        specialGroup = { ...specialGroup, ...newSpecialGroup }
-      })
+  ;[
+    getEmployee,
+    getAdmin,
+    getSuperAdmin,
+    getHyOne,
+    getJory,
+    getKosu,
+    getFeedbackLiaison,
+  ]
+    .map((f) => f(hyGroups))
+    .forEach(({ specialGroup: newSpecialGroup }) => {
+      specialGroup = { ...specialGroup, ...newSpecialGroup }
+    })
 
   return { specialGroup }
 }
@@ -253,21 +252,6 @@ const getDoctoralAccess: AccessSpecialGroupFunction = (hyGroups) => {
   return { access, specialGroup }
 }
 
-/**
- * Grants reading rights to all doctoral programmes that belong to user's
- * doctoral school IAMs
- * @returns read access to doctoral programs
- */
-const getDoctoralSchoolAccess: AccessSpecialGroupFunction = (hyGroups) => {
-  const doctoralProgrammeCodes = hyGroups.flatMap(iamToDoctoralSchool)
-  const access = {}
-  doctoralProgrammeCodes.forEach((code) => {
-    if (!code) return
-    access[code] = { read: true }
-  })
-  return { access }
-}
-
 const getDoctoralWriteAccess: AccessSpecialGroupFunction = (hyGroups) => {
   const hasDoctoralWriteRight = hyGroups.some((iam) =>
     doctoralWriteGroups.includes(iam),
@@ -350,37 +334,36 @@ const getProgrammeReadAccess: AccessSpecialGroupFunction = (hyGroups) => {
  * based on IAM-groups in IAM header string
  */
 const getIAMRights: AccessSpecialGroupFunction = (hyGroups) => {
-  let access = {}
+  const access = {}
   let specialGroup = {}
 
-    ;[
-      getUniversityReadingRights,
-      getFacultyReadingRights,
-      getFacultyWriteRights,
-      getFacultyAdminRights,
-      getDoctoralAccess,
-      getDoctoralSchoolAccess,
-      getDoctoralWriteAccess,
-      getProgrammeReadAccess,
-      getProgrammeWriteAccess,
-      getProgrammeAdminAccess,
-      getSpecialGroups,
-    ]
-      .map((f) => f(hyGroups))
-      .forEach((accessInfo) => {
-        for (const code in accessInfo.access) {
-          const newAccess = accessInfo.access[code]
-          const oldAccess = access[code]
+  ;[
+    getUniversityReadingRights,
+    getFacultyReadingRights,
+    getFacultyWriteRights,
+    getFacultyAdminRights,
+    getDoctoralAccess,
+    getDoctoralWriteAccess,
+    getProgrammeReadAccess,
+    getProgrammeWriteAccess,
+    getProgrammeAdminAccess,
+    getSpecialGroups,
+  ]
+    .map((f) => f(hyGroups))
+    .forEach((accessInfo) => {
+      for (const code in accessInfo.access) {
+        const newAccess = accessInfo.access[code]
+        const oldAccess = access[code]
 
-          access[code] = {
-            read: newAccess.read || oldAccess?.read,
-            write: newAccess.write || oldAccess?.write,
-            admin: newAccess.admin || oldAccess?.admin
-          }
+        access[code] = {
+          read: newAccess.read || oldAccess?.read,
+          write: newAccess.write || oldAccess?.write,
+          admin: newAccess.admin || oldAccess?.admin,
         }
+      }
 
-        specialGroup = { ...specialGroup, ...accessInfo.specialGroup }
-      })
+      specialGroup = { ...specialGroup, ...accessInfo.specialGroup }
+    })
 
   return { access, specialGroup }
 }
