@@ -54,7 +54,6 @@ const joryMap: Record<string, string | string[]> = {
   'hy-mltdk-geok-jory': '500-K006',
   'hy-mltdk-maa-jory': '500-K007',
   'hy-mltdk-bsc-jory': '500-K008',
-  'hy-mltdk-basus-jory': '500-K010',
   'hy-mltdk-mast-jory': '500-M001',
   'hy-mltdk-lsi-jory': '500-M002',
   'hy-mltdk-tcm-jory': '500-M003',
