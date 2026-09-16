@@ -53,11 +53,11 @@ jobs:
     if: ${{ github.event_name == 'push' && github.actor != 'renovate[bot]' }} # Prevent this job from running on pull requests
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Build image
         id: build-image
-        uses: redhat-actions/buildah-build@v2
+        uses: redhat-actions/buildah-build@v3
         with:
           image: jami
           tags: staging ${{ github.sha }}
@@ -65,6 +65,7 @@ jobs:
             ./Dockerfile
           build-args: |
             NODE_ENV=staging
+          squash: false
 
       - name: Push to version helsinki
         uses: redhat-actions/push-to-registry@v2
