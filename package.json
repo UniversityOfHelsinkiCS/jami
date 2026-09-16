@@ -9,6 +9,7 @@
     "start:prod": "node build/index.js",
     "build": "tsc",
     "test": "vitest",
+    "e2e": "./scripts/e2e.sh",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
