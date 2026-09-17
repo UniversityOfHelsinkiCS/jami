@@ -14,8 +14,8 @@ jobs:
     if: ${{ github.event.pull_request.user.login != 'renovate[bot]' && github.actor != 'renovate[bot]' }}
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: 'npm'
@@ -68,7 +68,7 @@ jobs:
           squash: false
 
       - name: Push to version helsinki
-        uses: redhat-actions/push-to-registry@v2
+        uses: redhat-actions/push-to-registry@v3
         with:
           image: ${{ steps.build-image.outputs.image }}
           tags: ${{ steps.build-image.outputs.tags }}
