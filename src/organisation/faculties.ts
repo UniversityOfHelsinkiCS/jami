@@ -1720,9 +1720,9 @@ const maatalousMetsatieteellinen: Faculty = {
     {
       key: 'KH80_003',
       name: {
-        fi: 'Elintarviketieteiden kandiohjelma',
-        en: "Bachelor's Programme in Food Sciences",
-        sv: 'Kandidatsprogrammet i livsmedelsvetenskaper',
+        fi: 'Elintarvike- ja ravitsemustieteiden kandiohjelma',
+        en: "Bachelor's Programme in Food and Nutrition Sciences",
+        sv: 'Kandidatprogrammet i livsmedels- och näringsvetenskaper',
       },
       level: 'bachelor',
       companionFaculties: [],
@@ -1808,9 +1808,9 @@ const maatalousMetsatieteellinen: Faculty = {
     {
       key: 'MH80_005',
       name: {
-        en: "Master's Programme in Human Nutrition and Food-Related Behaviour",
-        fi: 'Ihmisen ravitsemuksen ja ruokakäyttäytymisen maisteriohjelma',
-        sv: 'Magisterprogrammet i human nutrition och matbeteende',
+        en: "Master's Programme in Nutrition Science",
+        fi: 'Ravitsemustieteen maisteriohjelma',
+        sv: 'Magisterprogrammet i nutritionsvetenskap',
       },
       level: 'master',
       companionFaculties: [],
