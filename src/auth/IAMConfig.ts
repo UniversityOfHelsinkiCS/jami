@@ -99,7 +99,8 @@ const joryMap: Record<string, string | string[]> = {
   'hy-sskh-ksv-jory': '740-K001',
   'hy-mmtdk-maatk-jory': '800-K001',
   'hy-mmtdk-metsak-jory': '800-K002',
-  'hy-mmtdk-etk-jory': '800-K003',
+  'hy-mmtdk-etk-jory': '800-K003', //old one, remove when expired and new one (below) is in real use
+  'hy-mmtdk-etrk-jory': '800-K003',
   'hy-mmtdk-yet-jory': '800-K004',
   'hy-mmtdk-ekk-jory': '800-K005',
   'hy-mmtdk-ymta-jory': '800-K006',
@@ -235,6 +236,7 @@ const kojoMap = {
   'hy-mmtdk-metsak-jory': 'hy-mmtdk-kandi-kojot',
   'hy-mmtdk-ymta-jory': 'hy-mmtdk-kandi-kojot',
   'hy-mmtdk-etk-jory': 'hy-mmtdk-kandi-kojot',
+  'hy-mmtdk-etrk-jory': 'hy-mmtdk-kandi-kojot',
   'hy-mmtdk-yet-jory': 'hy-mmtdk-kandi-kojot',
   'hy-mmtdk-ekk-jory': 'hy-mmtdk-kandi-kojot',
   'hy-mmtdk-stech-jory': 'hy-mmtdk-maisteri-kojot',
