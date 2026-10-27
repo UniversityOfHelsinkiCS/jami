@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/nodejs-24-minimal AS build
+FROM node:24-alpine AS build
 
 ENV TZ="Europe/Helsinki"
 
@@ -18,7 +18,7 @@ COPY src ./src
 RUN npm run build
 
 
-FROM registry.access.redhat.com/ubi9/nodejs-24-minimal
+FROM node:24-alpine
 
 ENV TZ="Europe/Helsinki"
 
